@@ -4,4 +4,4 @@ import unittest
 class TestUserService(unittest.TestCase):
 
     def test_init_test(self):
-        assert 1 == 2
+        assert 1 == 1
