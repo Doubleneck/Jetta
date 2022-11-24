@@ -3,3 +3,5 @@ __pycache__
 tags
 .env
 __init__.py
+.coverage
+htmlcov/
