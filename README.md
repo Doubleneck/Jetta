@@ -4,6 +4,6 @@ Web-sovellus graduviitteiden hallintaan
 
 ## Dokumentaatio
 
-- [Product backlog](https://helsinkifi-my.sharepoint.com/:f:/g/personal/tsharkon_ad_helsinki_fi/EqEMIb3CNkhGsvnsecptZQwBq4HX1jg_ucRz8LpAoV8OqQ?e=3Ucgl6)
+- [Product backlog](https://helsinkifi-my.sharepoint.com/:x:/r/personal/tsharkon_ad_helsinki_fi/_layouts/15/Doc.aspx?sourcedoc=%7B990EAC30-58E9-4205-BA24-63F613E3C18C%7D&file=Jetta_ProductBacklog.xlsx&action=default&mobileredirect=true)
 
 - [Definition of Done](https://github.com/Doubleneck/Jetta/blob/master/documentation/definition_of_done.md)
