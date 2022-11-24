@@ -1,4 +1,6 @@
-![GHA workflow badge](https://github.com/Doubleneck/Jetta/workflows/CI/badge.svg)
+![GHA workflow badge](https://github.com/Doubleneck/Jetta/workflows/CI/badge.svg)[![codecov](https://codecov.io/gh/Doubleneck/Jetta/branch/master/graph/badge.svg?token=HLHGkP7oag)]
+
+
 # OHTU Miniprojekti
 
 Web-sovellus graduviitteiden hallintaan
