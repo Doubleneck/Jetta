@@ -21,7 +21,7 @@ class Database:
             
     def create_tables(self):
         create_table ="CREATE TABLE IF NOT EXISTS users(\
-                           user_id SERIAL PRIMARY KEY,\
+                           user_id INTEGER PRIMARY KEY AUTOINCREMENT,\
                            username VARCHAR (20) UNIQUE NOT NULL CHECK (username <> ''),\
                            password TEXT NOT NULL CHECK (password <> ''));"
         self.connection.execute(create_table)
