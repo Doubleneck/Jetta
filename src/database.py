@@ -3,7 +3,7 @@ import sqlite3
 class Database:
 
     def __init__(self):
-        self.db_type = "sqlite3_file"
+        self.db_type = "sqlite3_file" #Not yet maybe later
         self.db_path = "test.db"
         self.connection = self.connect()
     
@@ -11,7 +11,8 @@ class Database:
         connection = sqlite3.connect(self.db_path)
         connection.isolation_level = None
         return connection
-    
+
+    #Not yet maybe later
     def disconnect(self):
         try:
             self.connection.close()
