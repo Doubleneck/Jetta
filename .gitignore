@@ -8,3 +8,7 @@ htmlcov/
 *.swp
 *.sop
 *.db
+/*.png
+/*.png
+/log.html
+/output.xml
