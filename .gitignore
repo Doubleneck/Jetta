@@ -5,3 +5,5 @@ tags
 __init__.py
 .coverage
 htmlcov/
+*.swp
+*.sop
