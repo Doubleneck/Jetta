@@ -1,9 +1,9 @@
-from repositories.user_repository import UserRepository
+from repositories.user_repository import user_repository
 
 class UserService:
 
-    def __init__(self, database):
-        self.user_repository = UserRepository(database)
+    def __init__(self):
+        self.user_repository = user_repository
     
     def _check_if_user_exists(self, username):
         """Checks if there are users with the username
@@ -31,6 +31,7 @@ class UserService:
         if self._check_if_user_exists(username=username):
             return False
         self.user_repository.create_user(username=username, password=password)
+        return True
 
     def sign_in(self, username, password):
         """Sign in function
@@ -43,3 +44,5 @@ class UserService:
             Boolean: True if sign in is succesful, False if not
         """
         return self.user_repository.sign_in(username=username, password=password)
+
+user_service = UserService()

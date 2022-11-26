@@ -1,7 +1,5 @@
-from flask import Flask, render_template, redirect, url_for, request, flash
-from services.user_service import UserService
-import sqlite3
-from database import Database
+from flask import Flask, render_template, redirect, url_for, request, flash , session
+from services.user_service import user_service
 
 app = Flask(__name__)
 app.secret_key = 'lsefhlashbmihinvittuuntarvitsetsalaista-avaintaflajshgcebOIQROVYW3PVUH'
@@ -43,8 +41,13 @@ def login_page():
         username = request.form['username']
         password = request.form['password']
         try:
-            user = validate_user(username, password)
-            return redirect_to_main(user=user)
+            successful_sign_in = user_service.sign_in(username=username, password=password)
+            if successful_sign_in:
+                session["username"] = username
+                return redirect_to_main(user=username)
+            else:
+                flash("Incorrect username or password")
+                return redirect_to_login()
         except CredentialsError as error:
             flash(str(error))
             return redirect_to_login()
@@ -57,9 +60,15 @@ def register_page():
         username = request.form['username']
         password = request.form['password']
         password_confirm = request.form['password_confirm']
+        if password != password_confirm:
+            raise CredentialsError("Password and password confirmation do not match")
         try:
-            user = validate_user(username, password, password_confirm)
-            return redirect_to_main(user=user)
+            successful_creation = user_service.create_user(username=username, password=password)
+            if successful_creation:
+                session["username"] = username
+                return redirect_to_main(user=username)
+            else:
+                return redirect_to_register()
         except CredentialsError as error:
             flash(str(error))
             return redirect_to_register()
@@ -78,11 +87,3 @@ if __name__=="__main__":
     app.run(debug=True, host='0.0.0.0')
 
 
-# database = Database()
-# database.initialize_database()
-# user_service = UserService(database)
-# database.connection.execute("INSERT INTO users (username, password) VALUES ('kayttaja1', 'test')")
-# database.connection.execute("INSERT INTO users (username, password) VALUES ('kayttaja2', 'test')")
-# user_service.create_user("eero", "salasana")
-# user = database.connection.execute("SELECT username FROM users").fetchall()
-# return render_template('login.html')
