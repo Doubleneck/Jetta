@@ -1,0 +1,6 @@
+[MASTER]
+load-plugins=pylint.extensions.mccabe
+
+[DESIGN]
+# 10 seems like a commonly suggested limit
+max-complexity=10
