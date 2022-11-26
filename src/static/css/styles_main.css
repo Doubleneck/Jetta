@@ -45,7 +45,7 @@ input.text_field {
     height: 2.4rem;
     border-radius: 1rem;
     border-style: hidden;
-    color: DarkGrey;
+    color: Gray;
     background: #EDEDED;
 }
 
@@ -54,7 +54,7 @@ input.text_field:focus {
 }
 
 input.text_field::placeholder {
-    color: DarkGrey;
+    color: Grey;
     opacity: 0.7;
 }
 
@@ -67,7 +67,7 @@ input.button {
     font-size: 1.2rem;
     font-weight: normal;
     color: snow;
-    opacity:0.7;
+    opacity:0.8;
 }
 
 input.button:hover {

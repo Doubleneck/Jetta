@@ -1,14 +1,13 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
+from services.user_service import UserService
 import sqlite3
 from database import Database
 
 app = Flask(__name__)
-app.secret_key = 'lsefhlashbflajshgcebOIQROVYW3PVUH'
+app.secret_key = 'lsefhlashbmihinvittuuntarvitsetsalaista-avaintaflajshgcebOIQROVYW3PVUH'
 
 class CredentialsError(Exception):
     pass
-
-
 
 
 
@@ -81,6 +80,9 @@ if __name__=="__main__":
 
 # database = Database()
 # database.initialize_database()
+# user_service = UserService(database)
 # database.connection.execute("INSERT INTO users (username, password) VALUES ('kayttaja1', 'test')")
 # database.connection.execute("INSERT INTO users (username, password) VALUES ('kayttaja2', 'test')")
+# user_service.create_user("eero", "salasana")
 # user = database.connection.execute("SELECT username FROM users").fetchall()
+# return render_template('login.html')
