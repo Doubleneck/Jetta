@@ -2,8 +2,8 @@ from repositories.user_repository import user_repository
 
 class UserService:
 
-    def __init__(self):
-        self.user_repository = user_repository
+    def __init__(self, repository = user_repository):
+        self.user_repository = repository
     
     def _check_if_user_exists(self, username):
         """Checks if there are users with the username
@@ -12,7 +12,7 @@ class UserService:
             username (str): Username of the user searched
 
         Returns:
-            Booelan: True if there are already a user, False if not
+            Boolean: True if there is already a user, False if not
         """
         if self.user_repository.search_user(username=username):
             return True

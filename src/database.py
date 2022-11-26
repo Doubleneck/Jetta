@@ -3,15 +3,15 @@ from db_connection import get_connection
 
 class Database:
 
-    def __init__(self):
+    def __init__(self, path = "test.db"):
         self.db_type = "sqlite3_file"  # Not yet maybe later
-        self.db_path = "test.db"
+        self.db_path = path
         self.connection = get_connection()
 
     def connect(self):
-        connection = sqlite3.connect(self.db_path)
-        connection.isolation_level = None
-        return connection
+        self.connection = sqlite3.connect(self.db_path)
+        self.connection.isolation_level = None
+        return self.connection
 
     # Not yet maybe later
     def disconnect(self):
