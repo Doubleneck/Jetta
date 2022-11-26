@@ -1,0 +1,11 @@
+{% extends 'credentials_frame.html' %}
+{% block credentials_title %}Register{% endblock %}
+
+{% block credentials_form %}
+    <form action="/register" method="POST">
+        <input type="text" id="username" class="text_field cred_field" name="username" placeholder="username"><br>
+        <input type="password" id="password" class="text_field cred_field" name="password" placeholder="password"><br>
+        <input type="password" id="password_confirm" class="text_field cred_field" name="password_confirm" placeholder="confirm password"><br>
+        <input type="submit" class="button submit_btn" value="Register">
+    </form>
+{% endblock %}

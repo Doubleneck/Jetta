@@ -7,12 +7,14 @@
         {% block head %}
         <title>{% block title %}{% endblock %}</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_main.css') }}">
+        {# <script type="text/javascript" src="{{ url_for('static', filename='javascript/actions.js') }}"></script> #}
         {% endblock %}
     </head> 
     <body> 
-        {% block content %}
-        <h1>Ohtu-Miniprojekti</h1>
-        {% endblock %}
-    </body>
-</html>]
-
+        <div class="page_wrapper">
+            {% block content %}
+            <h1>Ohtu-Miniprojekti</h1>
+            {% endblock %}
+        </div>
+    <body>
+</html>

@@ -1,8 +1,13 @@
-{% extends 'base.html' %}
-{% block title %}Sign in{% endblock %}
-{% block head %}
-    {{ super() }}
+{% extends 'credentials_frame.html' %}
+{% block credentials_title %}Login{% endblock %}
+
+{% block credentials_form %}
+    <form action="/" method="POST">
+        <input type="text" id="username" class="text_field cred_field" name="username" placeholder="username"><br>
+        <input type="password" id="password" class="text_field cred_field" name="password" placeholder="password"><br>
+        <input type="submit" class="button submit_btn" value="Login">
+        <input type="button" class="button go_register_btn" value="Register" onclick="location.href='/register'">
+    </form>
 {% endblock %}
-{% block content %}
-    {{ super() }}
-{% endblock %}
+
+<!--onfocus="textfieldOnFocusHandler(this)" onblur="textfieldOnBlurHandler(this)"-->
