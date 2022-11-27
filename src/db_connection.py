@@ -1,9 +1,4 @@
 import sqlite3
 
-connection = sqlite3.connect("test.db", check_same_thread=False)
-
-connection.row_factory = sqlite3.Row
-
-
-def get_connection():
-    return connection
+the_connection = sqlite3.connect("test.db", check_same_thread=False)
+the_connection.row_factory = sqlite3.Row

@@ -1,12 +1,11 @@
 import sqlite3
-from db_connection import get_connection
+from db_connection import the_connection
 
 class Database:
-
     def __init__(self, path = "test.db"):
         self.db_type = "sqlite3_file"  # Not yet maybe later
         self.db_path = path
-        self.connection = get_connection()
+        self.connection = the_connection
 
     def connect(self):
         self.connection = sqlite3.connect(self.db_path)
@@ -39,4 +38,4 @@ class Database:
         self.drop_tables()
         self.create_tables()
 
-database = Database()
+the_database = Database()

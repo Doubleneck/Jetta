@@ -1,7 +1,5 @@
-import sqlite3
 import unittest
 
-from repositories.user_repository import UserRepository
 from services.user_service import UserService
 from tests.repositories.user_repository_test import create_test_user_repository
 
