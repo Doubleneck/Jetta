@@ -1,4 +1,4 @@
-[![GHA workflow badge](https://github.com/Doubleneck/Jetta/workflows/CI/badge.svg)](https://github.com/Doubleneck/Jetta/actions/workflows/main.yml][![codecov badge](https://codecov.io/gh/Doubleneck/Jetta/branch/master/graph/badge.svg?token=HLHGkP7oag)](https://codecov.io/gh/Doubleneck/Jetta)
+![GHA workflow badge](https://github.com/Doubleneck/Jetta/workflows/CI/badge.svg)][![codecov badge](https://codecov.io/gh/Doubleneck/Jetta/branch/master/graph/badge.svg?token=HLHGkP7oag)](https://codecov.io/gh/Doubleneck/Jetta)
 
 # OHTU Miniprojekti
 
