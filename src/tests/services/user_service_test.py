@@ -22,4 +22,4 @@ class TestUserService(unittest.TestCase):
     def test_create_user_with_existing_username_fails(self):
         self.assertTrue(self.service.create_user("Username", "Password"))
         self.assertFalse(self.service.create_user("Username", "Password"))
-        self.assertFalse(self.service.create_user("Username1", "Password2"))
+        self.assertFalse(self.service.create_user("Username", "Password2"))
