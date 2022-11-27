@@ -11,4 +11,4 @@ Web-sovellus graduviitteiden hallintaan
 
 - [Definition of Done](https://github.com/Doubleneck/Jetta/blob/master/documentation/definition_of_done.md)
 
-
+- [Robot-testiraportti](https://github.com/Doubleneck/Jetta/blob/master/report-html)
