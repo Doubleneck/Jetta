@@ -14,7 +14,7 @@ class AppLibrary:
         data = {
             "username": username,
             "password": password,
-            "password_confirmation": password
+            "password_confirm": password
         }
 
         requests.post(f"{self._base_url}/register", data=data)
