@@ -16,15 +16,16 @@ Register Click
     Register Page Should Be Open
 
 Login With Correct Credentials
-    Set Username    Username
-    Set Password    Password
-    Submit Credentials
+    Login Page Should Be Open
+    Set Username    Loginuser
+    Set Password    Loginpassword
+    Submit Login Credentials
     Login Should Succeed
 
 
 *** Keywords ***
-Submit Credentials
-    Click Button    Register
+Submit Login Credentials
+    Click Button    Login
 
 Set Username
     [Arguments]    ${username}
@@ -33,10 +34,6 @@ Set Username
 Set Password
     [Arguments]    ${password}
     Input Password    password    ${password}
-
-Set Password Confirmation
-    [Arguments]    ${password}
-    Input Password    password_confirm    ${password}
 
 Login Should Succeed
     Main Page Should Be Open
@@ -48,7 +45,6 @@ Login Should Fail With Message
     Page Should Contain    ${message}
 
 Create User And Go To Home Page
-    #ei wörki, syntyyköhän useri oikein?
-    Create User    Username    Password
+    Create User    Loginuser    Loginpassword
     Go To Home Page
     Home Page Should Be Open

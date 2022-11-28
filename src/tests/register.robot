@@ -44,7 +44,6 @@ Set Password Confirmation
 
 Register Should Succeed
     Main Page Should Be Open
-    #Ei wörki
 
 Create User And Go To Register Page
     Create User    Username    Password
