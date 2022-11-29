@@ -20,7 +20,7 @@ class UserRepository:
 
         cursor = self.connection.cursor()
         values = {"username": username}
-        sql = """SELECT id FROM users
+        sql = """SELECT user_id FROM users
         WHERE username=:username"""
         return cursor.execute(sql, values).fetchone()[0]
 
