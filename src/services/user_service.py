@@ -97,9 +97,6 @@ class UserService:
             Boolean: True if sign in is succesful, False if not.
         """
 
-        if not validate_credentials(username, password) is None:
-            return False
-
         return self.user_repository.sign_in(username=username, password=password)
 
 the_user_service = UserService()
