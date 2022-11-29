@@ -73,8 +73,13 @@ class UserService:
             password (str): Password for user
 
         Returns:
-            Boolean: False if there is already a user with the username
+            Boolean: False if there is already a user with the username or
+            if the credentials are invalid
         """
+
+        if not validate_credentials(username, password) is None:
+            return False
+
         if self._check_if_user_exists(username=username):
             return False
 
