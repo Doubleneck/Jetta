@@ -1,8 +1,9 @@
 from werkzeug.security import check_password_hash, generate_password_hash
 from db_connection import the_connection
 
+
 class UserRepository:
-    def __init__(self, connection = the_connection):
+    def __init__(self, connection=the_connection):
         self.connection = connection
 
     def search_user(self, username):
@@ -13,6 +14,15 @@ class UserRepository:
         sql = """SELECT username FROM users
         WHERE username=:username"""
         return bool(cursor.execute(sql, values).fetchall())
+
+    def get_user_id_by_username(self, username):
+        """Search user_id function, returns user_id for given argument username"""
+
+        cursor = self.connection.cursor()
+        values = {"username": username}
+        sql = """SELECT id FROM users
+        WHERE username=:username"""
+        return cursor.execute(sql, values).fetchone()[0]
 
     def create_user(self, username, password):
         """Create new user function. Password is saved as a hash value to
@@ -44,5 +54,6 @@ class UserRepository:
 
         hash_value_password = user[1]
         return check_password_hash(hash_value_password, password)
+
 
 the_user_repository = UserRepository()

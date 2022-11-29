@@ -1,18 +1,20 @@
 from repositories.user_repository import the_user_repository
 import re
 
+
 def _validate_username(username):
     if len(username) < 3:
         return "Username must be at least 3 letters long"
 
     if len(username) > 35:
         return "Username must be at most 35 letters long"
-    
+
     # Allow `@` and `.` for email usernames
     if not re.match("[a-zA-Z0-9@.]+", username):
         return "Username contains invalid characters"
 
-    return None # for clarity
+    return None  # for clarity
+
 
 def _validate_password(password):
     if len(password) < 7:
@@ -22,7 +24,7 @@ def _validate_password(password):
     # number, one lowercase letter and one uppecase letter.
     if not any(letter.islower() for letter in password):
         return "Password must contain at least one lowercase letter"
-    
+
     if not any(letter.isupper() for letter in password):
         return "Password must contain at least one uppercase letter"
 
@@ -30,6 +32,7 @@ def _validate_password(password):
         return "Password must contain at least one number"
 
     return None
+
 
 def validate_credentials(username, password):
     """Checks if the username and password should be
@@ -50,8 +53,9 @@ def validate_credentials(username, password):
 
     return _validate_password(password)
 
+
 class UserService:
-    def __init__(self, repository = the_user_repository):
+    def __init__(self, repository=the_user_repository):
         self.user_repository = repository
 
     def _check_if_user_exists(self, username):
@@ -98,5 +102,19 @@ class UserService:
         """
 
         return self.user_repository.sign_in(username=username, password=password)
+
+    def get_user_id_by_username(self, username):
+        """Search User Id
+
+        Args:
+            username (str): Username for user
+
+        Returns:
+            id (str): user_id for Username
+        """
+
+        user_id = self.user_repository.get_user_id_by_username(self, username)
+        return user_id
+
 
 the_user_service = UserService()
