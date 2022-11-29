@@ -113,7 +113,7 @@ class UserService:
             id (str): user_id for Username
         """
 
-        user_id = self.user_repository.get_user_id_by_username(self, username)
+        user_id = self.user_repository.get_user_id_by_username(username)
         return user_id
 
 
