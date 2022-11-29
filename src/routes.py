@@ -1,5 +1,6 @@
 from flask import render_template, redirect, url_for, request, flash, session
 from services.user_service import the_user_service
+# from services.note_service import the_note_service <-- temporary, waiting for service to be done
 from app import app
 
 
@@ -60,6 +61,32 @@ def main_page():
     user = session["username"]
 
     if request.method == "POST":
-        return redirect_to_main(user)
+        return redirect_to_main()
 
     return render_template("main.html", name=user)
+
+@app.route("/create_note")
+def create_note_page():
+    if "username" not in session.keys():
+        flash("Please sign in first")
+        return redirect("/")
+    return render_template("create_note.html")
+
+
+
+@app.route("/create_new_note", methods=["POST", "GET"])
+def create_new_reference():
+    author = request.form["author"]
+    title = request.form["title"]
+    year = request.form["year"]
+    doi_address = request.form["doi_address"]
+    bib_category = request.form["bib_category"]
+    #creation = the_note_service.create_note(author, title, year, doi_address, bib_category) <---- Waiting for service
+    #if creation:
+        #flash("New reference created successfully!")
+        #return redirect("/create_note")
+    #else:
+        #flash("Something went wrong")
+        #return redirect("/create_note")
+    flash(f"You created reference: Author: {author}, Title: {title}, Year: {year}, DOI: {doi_address}, BIB-category: {bib_category}")
+    return redirect("/create_note")
