@@ -23,7 +23,7 @@ class Database:
         cursor = self.connection.cursor()
         create_table = "CREATE TABLE IF NOT EXISTS users(\
                            user_id INTEGER PRIMARY KEY AUTOINCREMENT,\
-                           username VARCHAR (20) UNIQUE NOT NULL CHECK (username <> ''),\
+                           username VARCHAR (35) UNIQUE NOT NULL CHECK (username <> ''),\
                            password TEXT NOT NULL CHECK (password <> ''));"
         cursor.execute(create_table)
         self.connection.commit()
