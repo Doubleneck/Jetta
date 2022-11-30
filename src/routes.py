@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for, request, flash, session
 from services.user_service import the_user_service
-# from services.note_service import the_note_service <-- temporary, waiting for service to be done
+from services.note_service import the_note_service
 from app import app
 
 
@@ -92,13 +92,16 @@ def create_new_reference():
     year = request.form["year"]
     doi_address = request.form["doi_address"]
     bib_category = request.form["bib_category"]
-    # creation = the_note_service.create_note(author, title, year, doi_address, bib_category) <---- Waiting for service
-    # if creation:
-    #flash("New reference created successfully!")
-    # return redirect("/create_note")
-    # else:
-    #flash("Something went wrong")
-    # return redirect("/create_note")
-    flash(
-        f"You created reference: Author: {author}, Title: {title}, Year: {year}, DOI: {doi_address}, BIB-category: {bib_category}")
-    return redirect("/create_note")
+    creation = the_note_service.create_note(
+        bib_category=bib_category,
+        author=author,
+        title=title,
+        year=year,
+        doi_address=doi_address)
+    if creation:
+        flash("New reference created successfully!")
+        return redirect("/create_note")
+    else:
+        flash("Something went wrong")
+        return redirect("/create_note")
+

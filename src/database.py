@@ -28,7 +28,7 @@ class Database:
                            password TEXT NOT NULL CHECK (password <> ''));"
 
         create_table_notes = "CREATE TABLE IF NOT EXISTS notes(\
-                           notes_id SERIAL PRIMARY KEY,\
+                           notes_id INTEGER PRIMARY KEY AUTOINCREMENT,\
                            user_id INTEGER REFERENCES users NOT NULL,\
                            bib_category TEXT,\
                            author TEXT,\

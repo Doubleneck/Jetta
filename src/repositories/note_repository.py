@@ -3,6 +3,8 @@ from flask import session
 
 
 class NoteRepository:
+    def __init__(self, connection=the_connection):
+        self.connection = connection
 
     def create_note(self, bib_category, author, title, year, doi_address):
         """Create new user bibreference (named as a note) in database. """
