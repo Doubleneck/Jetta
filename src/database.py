@@ -24,14 +24,22 @@ class Database:
         create_table = "CREATE TABLE IF NOT EXISTS users(\
                            user_id INTEGER PRIMARY KEY AUTOINCREMENT,\
                            username VARCHAR (35) UNIQUE NOT NULL CHECK (username <> ''),\
-                           password TEXT NOT NULL CHECK (password <> ''));"
+                           password TEXT NOT NULL CHECK (password <> ''));\
+                        CREATE TABLE IF NOT EXISTS notes(\
+                           notes_id SERIAL PRIMARY KEY,\
+                           user_id INTEGER REFERENCES users NOT NULL,\
+                           bibcategory TEXT,\
+                           author TEXT,\
+                           title TEXT,\
+                           year TEXT,\
+                           doiaddress TEXT);"
         cursor.execute(create_table)
         self.connection.commit()
         cursor.close()
 
     def drop_tables(self):
         cursor = self.connection.cursor()
-        cursor.execute("DROP TABLE IF EXISTS users;")
+        cursor.execute("DROP TABLE IF EXISTS users, notes;")
         self.connection.commit()
 
     def initialize_database(self):

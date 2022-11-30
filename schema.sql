@@ -8,3 +8,13 @@ CREATE TABLE users (
 	username VARCHAR (20) UNIQUE NOT NULL CHECK (username <> ''),
 	password TEXT NOT NULL CHECK (password <> '')
 );
+
+CREATE TABLE notes (
+        notes_id SERIAL PRIMARY KEY,
+        user_id INTEGER REFERENCES users NOT NULL,
+        bibcategory TEXT,
+        author TEXT,
+        title TEXT,
+        year TEXT,
+        doiaddress TEXT
+);
