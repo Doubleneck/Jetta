@@ -6,14 +6,14 @@ class NoteRepository:
     def __init__(self, connection=the_connection):
         self.connection = connection
 
-    def create_note(self, bib_category, author, title, year, doi_address):
+    def create_note(self, bib_citekey, bib_category, author, title, year, doi_address):
         """Create new user bibreference (named as a note) in database. """
         user_id = session["user_id"]
         cursor = self.connection.cursor()
-        values = {"user_id": user_id, "bib_category": bib_category,
+        values = {"user_id": user_id,"bib_citekey": bib_citekey,"bib_category": bib_category,
                   "author": author, "title": title, "year": year, "doi_address": doi_address}
-        sql = """INSERT INTO notes (user_id, bib_category, author, title, year, doi_address)
-        VALUES (:user_id, :bib_category, :author, :title, :year, :doi_address)"""
+        sql = """INSERT INTO notes (user_id, bib_citekey, bib_category, author, title, year, doi_address)
+        VALUES (:user_id, :bib_citekey ,:bib_category, :author, :title, :year, :doi_address)"""
         cursor.execute(sql, values)
 
         self.connection.commit()

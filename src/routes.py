@@ -92,7 +92,9 @@ def create_new_reference():
     year = request.form["year"]
     doi_address = request.form["doi_address"]
     bib_category = request.form["bib_category"]
+    bib_citekey = request.form["bib_citekey"]
     creation = the_note_service.create_note(
+        bib_citekey=bib_citekey,
         bib_category=bib_category,
         author=author,
         title=title,

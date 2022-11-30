@@ -30,6 +30,7 @@ class Database:
         create_table_notes = "CREATE TABLE IF NOT EXISTS notes(\
                            notes_id INTEGER PRIMARY KEY AUTOINCREMENT,\
                            user_id INTEGER REFERENCES users NOT NULL,\
+                           bib_citekey TEXT,\
                            bib_category TEXT,\
                            author TEXT,\
                            title TEXT,\
