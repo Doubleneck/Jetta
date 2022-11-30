@@ -4,14 +4,14 @@ from flask import session
 
 class NoteRepository:
 
-    def create_note(self, bibcategory, author, title, year, doiaddress):
+    def create_note(self, bib_category, author, title, year, doi_address):
         """Create new user bibreference (named as a note) in database. """
         user_id = session["user_id"]
         cursor = self.connection.cursor()
-        values = {"user_id": user_id, "bibcategory": bibcategory,
-                  "author": author, "title": title, "year": year, "doiaddress": doiaddress}
-        sql = """INSERT INTO notes (user_id, bibcategory, author, title, year, doiaddress)
-        VALUES (:user_id, :bibcategory, :author, :title, :year, :doiaddress)"""
+        values = {"user_id": user_id, "bib_category": bib_category,
+                  "author": author, "title": title, "year": year, "doi_address": doi_address}
+        sql = """INSERT INTO notes (user_id, bib_category, author, title, year, doi_address)
+        VALUES (:user_id, :bib_category, :author, :title, :year, :doi_address)"""
         cursor.execute(sql, values)
 
         self.connection.commit()

@@ -30,11 +30,11 @@ class Database:
         create_table_notes = "CREATE TABLE IF NOT EXISTS notes(\
                            notes_id SERIAL PRIMARY KEY,\
                            user_id INTEGER REFERENCES users NOT NULL,\
-                           bibcategory TEXT,\
+                           bib_category TEXT,\
                            author TEXT,\
                            title TEXT,\
                            year TEXT,\
-                           doiaddress TEXT);"
+                           doi_address TEXT);"
         cursor.execute(create_table_users)
         cursor.execute(create_table_notes)
         self.connection.commit()
