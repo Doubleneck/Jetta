@@ -71,10 +71,11 @@ def register_page():
 def main_page():
     user = session["username"]
     user_id = session["user_id"]
+    notes = the_note_service.get_all_notes_by_user_id()
     if request.method == "POST":
         return redirect_to_main()
 
-    return render_template("main.html", name=user, user_id=user_id)
+    return render_template("main.html", name=user, user_id=user_id, notes=notes)
 
 
 @app.route("/create_note")
