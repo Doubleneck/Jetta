@@ -22,6 +22,12 @@ Login With Correct Credentials
     Submit Login Credentials
     Login Should Succeed
 
+Login With Wrong Password
+    Login Page Should Be Open
+    Set Username    Loginuser1
+    Set Password    Loginpassword2
+    Submit Login Credentials
+    Login Should Fail
 
 *** Keywords ***
 Submit Login Credentials
@@ -37,12 +43,10 @@ Set Password
 
 Login Should Succeed
     Main Page Should Be Open
-    #Ei wörki, pysyy home-sivulla
 
-Login Should Fail With Message
-    [Arguments]    ${message}
+Login Should Fail
     Login Page Should Be Open
-    Page Should Contain    ${message}
+    
 
 Create User And Go To Home Page
     Create User    Loginuser1    Loginpassword1
