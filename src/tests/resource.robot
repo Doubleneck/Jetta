@@ -40,5 +40,3 @@ Login Page Should Be Open
 Register Page Should Be Open
     Title Should Be    Register
 
-Submit Register Credentials
-    Click Button    Register

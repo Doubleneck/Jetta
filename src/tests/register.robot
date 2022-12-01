@@ -10,9 +10,9 @@ Test Setup          Create User And Go To Register Page
 Register With Valid Username And Password
     Go To Register Page
     Register Page Should Be Open
-    Set Username    Testuser
-    Set Password    Testpassword
-    Set Password Confirmation    Testpassword
+    Set Username    Testuser1
+    Set Password    Testpassword1
+    Set Password Confirmation    Testpassword1
     Submit Credentials
     Register Should Succeed
 
@@ -46,6 +46,6 @@ Register Should Succeed
     Main Page Should Be Open
 
 Create User And Go To Register Page
-    Create User    Username    Password
+    Create User    Username1    Password1
     Go To Register Page
     Register Page Should Be Open

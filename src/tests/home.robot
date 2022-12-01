@@ -17,8 +17,8 @@ Register Click
 
 Login With Correct Credentials
     Login Page Should Be Open
-    Set Username    Loginuser
-    Set Password    Loginpassword
+    Set Username    Loginuser1
+    Set Password    Loginpassword1
     Submit Login Credentials
     Login Should Succeed
 
@@ -45,6 +45,6 @@ Login Should Fail With Message
     Page Should Contain    ${message}
 
 Create User And Go To Home Page
-    Create User    Loginuser    Loginpassword
+    Create User    Loginuser1    Loginpassword1
     Go To Home Page
     Home Page Should Be Open
