@@ -16,14 +16,14 @@ Register With Valid Username And Password
     Submit Credentials
     Register Should Succeed
 
-#Register With Not Matching Password And Password Confirmation
-#    Go To Register Page
-#    Register Page Should Be Open
-#    Set Username    Testuser
-#    Set Password    Testpassword
-#    Set Password Confirmation    testpassword
-#    Submit Credentials
-#    Register Should Fail
+Register With Not Matching Password And Password Confirmation
+    Go To Register Page
+    Register Page Should Be Open
+    Set Username    Testuser
+    Set Password    Testpassword
+    Set Password Confirmation    testpassword
+    Submit Credentials
+    Register Should Fail
 
 
 *** Keywords ***
@@ -44,6 +44,9 @@ Set Password Confirmation
 
 Register Should Succeed
     Main Page Should Be Open
+
+Register Should Fail
+    Register Page Should Be Open
 
 Create User And Go To Register Page
     Create User    Username1    Password1
