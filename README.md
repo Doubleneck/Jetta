@@ -25,7 +25,8 @@ How to use this software:
 3. Then use command 'poetry shell'
 4. When you are in shell mode, use command python3 src/build.py #note, you must have python installed
 5. You can start app with command python3 src/app.py
-6. Enjoy!
+6. More instructions about software, how to use it and so on [here](https://github.com/Doubleneck/Jetta/blob/master/documentation/instructions.md)
+7. Enjoy!
 
 #### Version
 [Latest version release](https://github.com/Doubleneck/Jetta/releases/tag/v.0.0.1)
