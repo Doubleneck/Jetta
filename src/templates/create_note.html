@@ -1,54 +1,58 @@
-This is temporary! Taneli will finish this.
+{% extends 'main.html' %}
 
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-<ul class=flashes>
-    {% for message in messages %}
-      <li>{{ message }}</li>
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
+{% block note_content %}
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
 
 
-<form action="/create_new_note" method="POST">
-    <p>
-        Author
-    </p>
-    <br>
-    <textarea name="author" cols="30" rows="5"></textarea>
-    <br>
-    <p>
-        Title
-    </p>
-    <br>
-    <textarea name="title" cols="30" rows="5"></textarea>
-    <br>
-    <p>
-        Bib Category
-    </p>
-    <br>
-    <textarea name="bib_category" cols="30" rows="5"></textarea>
-    <br>
-    <p>
-        Bib citekey
-    </p>
-    <br>
-    <textarea name="bib_citekey" cols="30" rows="5"></textarea>
-    <br>
-    <p>
-        Year
-    </p>
-    <br>
-    <textarea name="year" id="" cols="30" rows="5"></textarea>
-    <br>
-    <p>
-        DOI
-    </p>
-    <br>
-    <textarea name="doi_address" id="" cols="30" rows="5"></textarea>
-    <p>
-        <button type="submit">Add</button>
-    </p>
+    <form action="/create_new_note" method="POST">
+        <p>
+            Author
+        </p>
+        <br>
+        <textarea name="author" cols="30" rows="5"></textarea>
+        <br>
+        <p>
+            Title
+        </p>
+        <br>
+        <textarea name="title" cols="30" rows="5"></textarea>
+        <br>
+        <p>
+            Bib Category
+        </p>
+        <br>
+        <textarea name="bib_category" cols="30" rows="5"></textarea>
+        <br>
+        <p>
+            Bib citekey
+        </p>
+        <br>
+        <textarea name="bib_citekey" cols="30" rows="5"></textarea>
+        <br>
+        <p>
+            Year
+        </p>
+        <br>
+        <textarea name="year" id="" cols="30" rows="5"></textarea>
+        <br>
+        <p>
+            DOI
+        </p>
+        <br>
+        <textarea name="doi_address" id="" cols="30" rows="5"></textarea>
+        <p>
+            <button type="submit">Add</button>
+        </p>
 
-</form>
+    </form>
+
+{% endblock %}
