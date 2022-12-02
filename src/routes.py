@@ -75,7 +75,7 @@ def main_page():
     if request.method == "POST":
         return redirect_to_main()
 
-    return render_template("main.html", name=user, user_id=user_id, notes=notes)
+    return render_template("note_listing.html", username=user, user_id=user_id, notes=notes)
 
 
 @app.route("/create_note")

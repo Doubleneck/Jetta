@@ -5,17 +5,15 @@
 {% endblock %}
 {% block content %}
 
-<h1>Tervetuloa {{ name }} with id {{user_id}}!</h1>
-<a href="/create_note">Create a new reference</a>
-<brk>
-<h2>My bibtex references (Demo, to be updated)</h2>
+    <div class="topnav">
+        <a href="/main"><img class="logo" src="{{ url_for('static', filename='images/jetta_logo_musta.svg') }}" alt="logo"></a>
+        <a href="/" class="logout font_normal">Logout</a>
+        <p class="username font_normal">{{ username }}</p>
+    </div>
+    <div class="page_wrapper">
 
-{% for note in notes %}
-  <p {{ note.id }}" style="color: rgb(246, 249, 250)">
-    {{ note.bib_category}}, {{ note.bib_citekey }}, {{ note.author }}, 
-    {{ note.title }}, {{ note.title }}, {{ note.year}}, {{ note.doi_address }}</p>
-  <br>
-  <br>
-{% endfor %}
+        {% block note_content %}
+        {% endblock %}
+    </div>
 
 {% endblock %}
