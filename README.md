@@ -11,3 +11,5 @@ Web-sovellus graduviitteiden hallintaan
 
 - [Definition of Done](https://github.com/Doubleneck/Jetta/blob/master/documentation/definition_of_done.md)
 
+- [License](https://github.com/Doubleneck/Jetta/blob/master/documentation/LICENSE.txt)
+
