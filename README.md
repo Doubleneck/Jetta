@@ -13,6 +13,8 @@ Web-sovellus graduviitteiden hallintaan
 
 - [License](https://github.com/Doubleneck/Jetta/blob/master/documentation/LICENSE.txt)
 
+- [Instructions](https://github.com/Doubleneck/Jetta/blob/master/documentation/instructions.md)
+
 
 ## Installation
 
