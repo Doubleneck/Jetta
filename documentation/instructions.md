@@ -19,7 +19,7 @@ When you start software you go to login page where you can login or click regist
 \
 \
 \
-In register page you can register your own account.
+In register page you can register your own account.\
 \
 ![](./pictures/Register.png)\
 \
@@ -58,8 +58,4 @@ If your reference is added. Software notifies about it with text 'New reference 
 \
 Now main page looks like this!!!\
 \
-![](./pictures/Reference_in_main.png)\
-\
-\
-\
-\
+![](./pictures/Reference_in_main.png)
