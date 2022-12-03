@@ -12,7 +12,8 @@ How to use this software:
 7. Enjoy!
 
 When you start software you go to login page where you can login or click register button to register new user
-<br />
+
+\
 ![](./pictures/Login.png)
 
 In register page you can register your own account.
