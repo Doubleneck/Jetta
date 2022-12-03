@@ -12,11 +12,10 @@ How to use this software:
 7. Enjoy!
 
 When you start software you go to login page where you can login or click register button to register new user
-
-\
 ![](./pictures/Login.png)
 
 In register page you can register your own account.
+\
 ![](./pictures/Register.png)
 
 When you fill your username ones and password twice, check you have username length atleast 3 characters long and max 35 characters.
