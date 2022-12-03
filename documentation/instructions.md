@@ -10,6 +10,9 @@ How to use this software:
 4. When you are in shell mode, use command 'python3 src/build.py' #note, you must have python installed
 5. You can start app with command 'python3 src/app.py'
 7. Enjoy!
+
+
+## Software
 \
 \
 \
