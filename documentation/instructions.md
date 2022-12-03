@@ -13,7 +13,7 @@ How to use this software:
 \
 \
 \
-When you start software you go to login page where you can login or click register button to register new user
+When you start software you go to login page where you can login or click register button to register new user\
 \
 ![](./pictures/Login.png)\
 \
@@ -26,37 +26,39 @@ In register page you can register your own account.
 \
 \
 When you fill your username once and password twice, check you have username length atleast 3 characters long and max 35 characters.
-Password must be over 7 characters and contains atleast one small letter, one big letter and one number.
+Password must be over 7 characters and contains atleast one small letter, one big letter and one number.\
+\
 ![](./pictures/Register_filled.png)\
 \
 \
 \
-When you finally get your own user, you reach main page where you have already references or not have any. You can go to add a new reference or logout.
+When you finally get your own user, you reach main page where you have already references or not have any. You can go to add a new reference or logout.\
 \
 ![](./pictures/Main_page.png)\
 \
 \
 \
-If you pressed add a new reference button, you reach page where you can make new reference. You can just add author, title, bib category, bib citekey, year and doi to text boxes.
+If you pressed add a new reference button, you reach page where you can make new reference. You can just add author, title, bib category, bib citekey, year and doi to text boxes.\
 \
 ![](./pictures/New_reference.png)\
 \
 \
 \
-For example like that
+For example like this!\
 \
 ![](./pictures/Reference_filled.png)\
 \
 \
 \
-If your reference is added. Software notify about it with text 'New reference created successfully!
+If your reference is added. Software notifies about it with text 'New reference created successfully!\
+\
 ![](./pictures/Reference_created_successfully.png)\
 \
 \
 \
-Now main page looks like this!!!
-![](./pictures/Reference_in_main.png)\
+Now main page looks like this!!!\
 \
+![](./pictures/Reference_in_main.png)\
 \
 \
 \
