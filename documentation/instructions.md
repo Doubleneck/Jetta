@@ -4,5 +4,8 @@
 ![](./pictures/Main_page.png)
 ![](./pictures/New_reference.png)
 ![](./pictures/Reference_filled.png)
+
+Foobar text
+
 ![](./pictures/Reference_created_successfully.png)
 ![](./pictures/Reference_in_main.png)
