@@ -14,8 +14,6 @@ How to use this software:
 
 ## Software
 \
-\
-\
 When you start software you go to login page where you can login or click register button to register new user\
 \
 ![](./pictures/Login.png)\
