@@ -1,1 +1,8 @@
-Foobar
+![](./pictures/Login.png)
+![](./pictures/Register.png)
+![](./pictures/Register_filled.png)
+![](./pictures/Main_page.png)
+![](./pictures/New_reference.png)
+![](./pictures/Reference_filled.png)
+![](./pictures/Reference_created_successfully.png)
+![](./pictures/Reference_in_main.png)
