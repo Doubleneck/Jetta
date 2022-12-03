@@ -53,7 +53,7 @@ For example like this!\
 \
 \
 \
-If your reference is added. Software notifies about it with text 'New reference created successfully!\
+If your reference is added. Software notifies about it with text 'New reference created successfully!'\
 \
 ![](./pictures/Reference_created_successfully.png)\
 \
