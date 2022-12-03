@@ -18,11 +18,12 @@ In register page you can register your own account.
 \
 ![](./pictures/Register.png)
 
-When you fill your username ones and password twice, check you have username length atleast 3 characters long and max 35 characters.
+When you fill your username once and password twice, check you have username length atleast 3 characters long and max 35 characters.
 Password must be over 7 characters and contains atleast one small letter, one big letter and one number.
 ![](./pictures/Register_filled.png)
 
 When you finally get your own user, you reach main page where you have already references or not have any. You can go to add a new reference or logout.
+\
 ![](./pictures/Main_page.png)
 
 If you pressed add a new reference button, you reach page where you can make new reference. You can just add author, title, bib category, bib citekey, year and doi to text boxes.
