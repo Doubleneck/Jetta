@@ -64,6 +64,8 @@ def register_page():
             user_id = the_user_service.get_user_id_by_username(username)
             session["user_id"] = user_id
             return redirect_to_main()
+        else:
+            flash("Username taken! Please choose another")
     except CredentialsError as error:
         flash(str(error))
 
