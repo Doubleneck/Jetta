@@ -16,7 +16,7 @@ How to use this software:
 
 ## Software
 \
-When you start software you go to login page where you can login or click register button to register new user\
+When you start software, you go to login page, where you can login or click register button to register new user\
 \
 ![](./pictures/Login.png)\
 \
@@ -41,7 +41,7 @@ When you finally get your own user, you reach main page where you have already r
 \
 \
 \
-If you pressed add a new reference button, you reach page where you can make new reference. You can just add author, title, bib category, bib citekey, year and doi to text boxes.\
+If you pressed add a new reference button, you reach page where you can make a new reference. You can just add author, title, bib category, bib citekey, year and doi to text boxes.\
 \
 ![](./pictures/New_reference.png)\
 \
