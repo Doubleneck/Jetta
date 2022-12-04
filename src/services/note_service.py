@@ -5,16 +5,10 @@ class NoteService:
         self._repository = repository
 
     def create_note(self, user_id, note):
-        try:
-            self._repository.create_note(user_id, note)
-            return True
-        except:
-            return False
+        self._repository.create_note(user_id, note)
+        return True
 
     def get_all_notes_by_user_id(self, user_id):
-        try:
-            return self._repository.get_all_notes_by_user_id(user_id)
-        except:
-            return False
+        return self._repository.get_all_notes_by_user_id(user_id)
 
 the_note_service = NoteService()

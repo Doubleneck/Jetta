@@ -1,27 +1,5 @@
 from db_connection import the_connection
 
-class Note:
-    def __init__(self, bib_citekey, bib_category, author, title, year, doi_address):
-        self.bib_citekey = bib_citekey
-        self.bib_category = bib_category
-        self.author = author
-        self.title = title
-        self.year = year
-        self.doi_address = doi_address
-
-    def __eq__(self, other):
-        if not isinstance(other, Note):
-            return False
-        return self.bib_citekey == other.bib_citekey\
-                and self.bib_category == other.bib_category\
-                and self.author == other.author\
-                and self.title == other.title\
-                and self.year == other.year\
-                and self.doi_address == other.doi_address
-
-    def __ne__(self, other):
-        return not (self == other)
-
 class NoteRepository:
     def __init__(self, connection=the_connection):
         self.connection = connection
@@ -52,13 +30,35 @@ class NoteRepository:
 
 def _database_row_to_note(row):
     return Note(
-        bib_citekey = row['bib_citekey'],
-        bib_category = row['bib_category'],
-        author = row['author'],
-        title = row['title'],
-        year = row['year'],
-        doi_address = row['doi_address']
+        bib_citekey = row["bib_citekey"],
+        bib_category = row["bib_category"],
+        author = row["author"],
+        title = row["title"],
+        year = row["year"],
+        doi_address = row["doi_address"]
     )
+
+class Note:
+    def __init__(self, bib_citekey, bib_category, author, title, year, doi_address):
+        self.bib_citekey = bib_citekey
+        self.bib_category = bib_category
+        self.author = author
+        self.title = title
+        self.year = year
+        self.doi_address = doi_address
+
+    def __eq__(self, other):
+        if not isinstance(other, Note):
+            return False
+        return self.bib_citekey == other.bib_citekey\
+                and self.bib_category == other.bib_category\
+                and self.author == other.author\
+                and self.title == other.title\
+                and self.year == other.year\
+                and self.doi_address == other.doi_address
+
+    def __ne__(self, other):
+        return not self == other
 
 
 the_note_repository = NoteRepository()

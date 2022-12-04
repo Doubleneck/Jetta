@@ -1,6 +1,6 @@
 import unittest
 
-from services.user_service import UserService, validate_credentials
+from services.user_service import UserService
 from tests.repositories.user_repository_test import create_test_user_repository
 
 VALID_USERNAME = "Mikko"
@@ -36,13 +36,13 @@ class TestUserService(unittest.TestCase):
     def test_getting_user_id_for_existing_user_returns_int(self):
         self.service.create_user(VALID_USERNAME, VALID_PASSWORD)
 
-        id = self.service.get_user_id_by_username(VALID_USERNAME)
-        self.assertTrue(isinstance(id, int))
+        user_id = self.service.get_user_id_by_username(VALID_USERNAME)
+        self.assertTrue(isinstance(user_id, int))
 
     def test_getting_user_id_for_nonexisting_user_returns_none(self):
-        id = self.service.get_user_id_by_username(VALID_USERNAME)
+        user_id = self.service.get_user_id_by_username(VALID_USERNAME)
 
-        self.assertIsNone(id)
+        self.assertIsNone(user_id)
 
     def test_user_id_for_two_different_users_is_different(self):
         self.service.create_user("Mikko", VALID_PASSWORD)
