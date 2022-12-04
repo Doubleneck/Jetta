@@ -10,6 +10,15 @@ class TestUserService(unittest.TestCase):
     def setUp(self):
         self.service = UserService(create_test_user_repository())
 
+    def test_creating_user_with_valid_credentials_works(self):
+        self.assertTrue(self.service.create_user(VALID_USERNAME, VALID_PASSWORD))
+
+    def test_creating_user_with_invalid_credentials_fails(self):
+        # Note: credential-validation tests are done in depth in util_test.py;
+        # suffices to verify that the validation function is likely being called.
+        self.assertFalse(self.service.create_user("$", VALID_PASSWORD))
+        self.assertFalse(self.service.create_user(VALID_USERNAME, "$"))
+
     def test_sign_in_works_after_creating_user(self):
         self.service.create_user(VALID_USERNAME, VALID_PASSWORD)
         self.assertTrue(self.service.sign_in(VALID_USERNAME, VALID_PASSWORD))
@@ -24,32 +33,21 @@ class TestUserService(unittest.TestCase):
         self.assertFalse(self.service.create_user(VALID_USERNAME, VALID_PASSWORD))
         self.assertFalse(self.service.create_user(VALID_USERNAME, "SomeVal1dPassword"))
 
-# validate_credentials() tests
-class TestCredentialsValidation(unittest.TestCase):
-    def test_valid_username_and_password_is_accepted(self):
-        self.assertIsNone(validate_credentials(VALID_USERNAME, VALID_PASSWORD))
+    def test_getting_user_id_for_existing_user_returns_int(self):
+        self.service.create_user(VALID_USERNAME, VALID_PASSWORD)
 
-    def test_password_must_contain_uppercase_lowercase_and_numeric_letters(self):
-        # validate_credentials() returns None only if the credentials were valid
-        
-        # 1: missing number, 2: missing uppercase letter, 3: missing lowercase letter
-        self.assertIsNotNone(validate_credentials(VALID_USERNAME, "Password"))
-        self.assertIsNotNone(validate_credentials(VALID_USERNAME, "passw0rd")) 
-        self.assertIsNotNone(validate_credentials(VALID_USERNAME, "P4SSW0RD")) 
+        id = self.service.get_user_id_by_username(VALID_USERNAME)
+        self.assertTrue(isinstance(id, int))
 
-    def test_password_must_be_at_least_seven_characters_long(self):
-        self.assertIsNotNone(validate_credentials(VALID_USERNAME, "Pw0rd"))
+    def test_getting_user_id_for_nonexisting_user_returns_none(self):
+        id = self.service.get_user_id_by_username(VALID_USERNAME)
 
-    def test_username_must_be_at_least_three_characters_long(self):
-        self.assertIsNotNone(validate_credentials("VG", VALID_PASSWORD))
+        self.assertIsNone(id)
 
-    def test_username_must_be_at_most_35_characters_long(self):
-        long_username = "abcdefghijklmnopqrstuvwxyz0123456789" # 36 long
-        self.assertIsNotNone(validate_credentials(long_username, VALID_PASSWORD))
+    def test_user_id_for_two_different_users_is_different(self):
+        self.service.create_user("Mikko", VALID_PASSWORD)
+        self.service.create_user("Pekka", VALID_PASSWORD)
 
-    def test_emails_are_accepted_as_usernames(self):
-        username = "mikko.mikkonen@mikkomail.com"
-        self.assertIsNone(validate_credentials(username, VALID_PASSWORD))
-
-    def test_invalid_characters_in_username_are_rejected(self):
-        self.assertIsNotNone(validate_credentials("$eppo", VALID_PASSWORD))
+        mikkos_id = self.service.get_user_id_by_username("Mikko")
+        pekkas_id = self.service.get_user_id_by_username("Pekka")
+        self.assertNotEqual(mikkos_id, pekkas_id)

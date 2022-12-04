@@ -1,7 +1,9 @@
 from flask import render_template, redirect, url_for, request, flash, session
+from repositories.note_repository import Note
 from services.user_service import the_user_service
 from services.note_service import the_note_service
 from app import app
+from util import validate_credentials
 
 
 class CredentialsError(Exception):
@@ -51,9 +53,10 @@ def register_page():
     password = request.form["password"]
     password_confirm = request.form["password_confirm"]
 
-    if password != password_confirm:
-        raise CredentialsError(
-            "Password and password confirmation do not match")
+    issue = validate_credentials(username, password, password_confirm)
+    if not issue is None:
+        flash(issue)
+        return redirect_to_register()
 
     try:
         if the_user_service.create_user(username=username, password=password):
@@ -71,7 +74,7 @@ def register_page():
 def main_page():
     user = session["username"]
     user_id = session["user_id"]
-    notes = the_note_service.get_all_notes_by_user_id()
+    notes = the_note_service.get_all_notes_by_user_id(user_id)
     if request.method == "POST":
         return redirect_to_main()
 
@@ -88,19 +91,17 @@ def create_note_page():
 
 @app.route("/create_new_note", methods=["POST", "GET"])
 def create_new_reference():
-    author = request.form["author"]
-    title = request.form["title"]
-    year = request.form["year"]
-    doi_address = request.form["doi_address"]
-    bib_category = request.form["bib_category"]
-    bib_citekey = request.form["bib_citekey"]
-    creation = the_note_service.create_note(
-        bib_citekey=bib_citekey,
-        bib_category=bib_category,
-        author=author,
-        title=title,
-        year=year,
-        doi_address=doi_address)
+    note = Note(
+        author = request.form["author"],
+        title = request.form["title"],
+        year = request.form["year"],
+        doi_address = request.form["doi_address"],
+        bib_category = request.form["bib_category"],
+        bib_citekey = request.form["bib_citekey"],
+    )
+    user_id = session["user_id"]
+
+    creation = the_note_service.create_note(user_id, note)
     if creation:
         flash("New reference created successfully!")
         return redirect("/create_note")

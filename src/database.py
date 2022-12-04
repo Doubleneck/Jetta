@@ -10,6 +10,7 @@ class Database:
 
     def connect(self):
         self.connection = sqlite3.connect(self.db_path)
+        self.connection.row_factory = sqlite3.Row
         self.connection.isolation_level = None
         return self.connection
 
