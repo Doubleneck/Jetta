@@ -22,7 +22,7 @@ class TestUserService(unittest.TestCase):
     def test_create_user_with_existing_username_fails(self):
         self.assertTrue(self.service.create_user(VALID_USERNAME, VALID_PASSWORD))
         self.assertFalse(self.service.create_user(VALID_USERNAME, VALID_PASSWORD))
-        self.assertFalse(self.service.create_user(VALID_USERNAME, "Some0therValidPassword"))
+        self.assertFalse(self.service.create_user(VALID_USERNAME, "SomeVal1dPassword"))
 
 # validate_credentials() tests
 class TestCredentialsValidation(unittest.TestCase):
@@ -31,9 +31,11 @@ class TestCredentialsValidation(unittest.TestCase):
 
     def test_password_must_contain_uppercase_lowercase_and_numeric_letters(self):
         # validate_credentials() returns None only if the credentials were valid
-        self.assertIsNotNone(validate_credentials(VALID_USERNAME, "Password")) # missing number
-        self.assertIsNotNone(validate_credentials(VALID_USERNAME, "passw0rd")) # missing uppercase letter
-        self.assertIsNotNone(validate_credentials(VALID_USERNAME, "P4SSW0RD")) # missing lowercase letter
+        
+        # 1: missing number, 2: missing uppercase letter, 3: missing lowercase letter
+        self.assertIsNotNone(validate_credentials(VALID_USERNAME, "Password"))
+        self.assertIsNotNone(validate_credentials(VALID_USERNAME, "passw0rd")) 
+        self.assertIsNotNone(validate_credentials(VALID_USERNAME, "P4SSW0RD")) 
 
     def test_password_must_be_at_least_seven_characters_long(self):
         self.assertIsNotNone(validate_credentials(VALID_USERNAME, "Pw0rd"))
@@ -42,10 +44,12 @@ class TestCredentialsValidation(unittest.TestCase):
         self.assertIsNotNone(validate_credentials("VG", VALID_PASSWORD))
 
     def test_username_must_be_at_most_35_characters_long(self):
-        self.assertIsNotNone(validate_credentials("abcdefghijklmnopqrstuvwxyz0123456789", VALID_PASSWORD)) # 36 long
+        long_username = "abcdefghijklmnopqrstuvwxyz0123456789" # 36 long
+        self.assertIsNotNone(validate_credentials(long_username, VALID_PASSWORD))
 
     def test_emails_are_accepted_as_usernames(self):
-        self.assertIsNone(validate_credentials("mikko.mikkonen@mikkomail.com", VALID_PASSWORD))
+        username = "mikko.mikkonen@mikkomail.com"
+        self.assertIsNone(validate_credentials(username, VALID_PASSWORD))
 
     def test_invalid_characters_in_username_are_rejected(self):
         self.assertIsNotNone(validate_credentials("$eppo", VALID_PASSWORD))

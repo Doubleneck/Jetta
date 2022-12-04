@@ -1,7 +1,6 @@
 from repositories.note_repository import the_note_repository
 
 class NoteService:
-
     def create_note(self, bib_citekey, bib_category, author, title, year, doi_address):
         try:
             the_note_repository.create_note(

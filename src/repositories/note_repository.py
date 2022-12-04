@@ -20,7 +20,7 @@ class NoteRepository:
         cursor.close()
 
     def get_all_notes_by_user_id(self):
-        """Returns all notes by user, uses session.user_id as an identifiere"""
+        """Returns all notes by user, uses session.user_id as an identifier"""
         user_id = session["user_id"]
         cursor = self.connection.cursor()
         values = {"user_id": user_id}
