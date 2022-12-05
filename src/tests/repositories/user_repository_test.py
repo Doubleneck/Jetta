@@ -5,8 +5,6 @@ from database import Database
 
 def create_test_user_repository():
     database = Database(path = ":memory:")
-    database.connect()
-    database.initialize_database()
     return UserRepository(database.connection)
 
 class TestUserRepository(unittest.TestCase):

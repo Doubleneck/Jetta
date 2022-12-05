@@ -1,11 +1,10 @@
 from werkzeug.security import check_password_hash, generate_password_hash
 from database import the_database
-# from db_connection import the_connection
 
 
 class UserRepository:
-    def __init__(self):
-        self.connection = the_database.connection
+    def __init__(self, connection = the_database.connection):
+        self.connection = connection
 
     def search_user(self, username):
         """Search user function, returns True if user is found"""
