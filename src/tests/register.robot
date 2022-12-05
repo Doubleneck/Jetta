@@ -1,54 +1,24 @@
 *** Settings ***
 Resource            resource.robot
+Resource            register_resource.robot
 
 Suite Setup         Open And Configure Browser
 Suite Teardown      Close Browser
-Test Setup          Create User And Go To Register Page
+Test Setup          Reset Application And Go To Register Page
 
 
 *** Test Cases ***
 Register With Valid Username And Password
-    Go To Register Page
-    Register Page Should Be Open
-    Set Username    Testuser1
-    Set Password    Testpassword1
-    Set Password Confirmation    Testpassword1
-    Submit Credentials
+    Create User  ${VALID_USERNAME}  ${VALID_PASSWORD}
     Register Should Succeed
 
 Register With Not Matching Password And Password Confirmation
     Go To Register Page
     Register Page Should Be Open
-    Set Username    Testuser
-    Set Password    Testpassword
-    Set Password Confirmation    testpassword
-    Submit Credentials
+    Input Register Credentials  ${VALID_USERNAME}  Salasana1  Salesana1
     Register Should Fail
 
-
 *** Keywords ***
-Submit Credentials
-    Click Button    Register
-
-Set Username
-    [Arguments]    ${username}
-    Input Text    username    ${username}
-
-Set Password
-    [Arguments]    ${password}
-    Input Password    password    ${password}
-
-Set Password Confirmation
-    [Arguments]    ${password}
-    Input Password    password_confirm    ${password}
-
-Register Should Succeed
-    Main Page Should Be Open
-
-Register Should Fail
-    Register Page Should Be Open
-
-Create User And Go To Register Page
-    Create User    Username1    Password1
+Reset Application And Go To Register Page
+    Reset Application
     Go To Register Page
-    Register Page Should Be Open

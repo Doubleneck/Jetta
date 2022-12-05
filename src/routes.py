@@ -2,6 +2,7 @@ from flask import render_template, redirect, url_for, request, flash, session
 from services.user_service import the_user_service
 from services.note_service import the_note_service
 from app import app
+from database import the_database
 
 
 class CredentialsError(Exception):
@@ -19,6 +20,10 @@ def redirect_to_register():
 def redirect_to_main():
     return redirect(url_for("main_page"))
 
+@app.route("/tests/reset", methods=["POST"])
+def reset_application():
+    the_database.initialize_database()
+    return "Database Reset"
 
 @app.route("/", methods=["POST", "GET"])
 def login_page():

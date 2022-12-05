@@ -1,16 +1,20 @@
 import sqlite3
-from db_connection import the_connection
+# from db_connection import the_connection
 
 
 class Database:
-    def __init__(self, path="test.db"):
-        self.db_type = "sqlite3_file"  # Not yet maybe later
+    def __init__(self, path="data.db"):
         self.db_path = path
-        self.connection = the_connection
+        self.connection = self.connect()
 
     def connect(self):
-        self.connection = sqlite3.connect(self.db_path)
+        try:
+            self.connection = sqlite3.connect(self.db_path, check_same_thread=False)
+        except Exception:
+            raise ConnectionError(f"Connection to database ({self.db_path}) failed")
+        self.connection.row_factory = sqlite3.Row
         self.connection.isolation_level = None
+        self.initialize_database()
         return self.connection
 
     # Not yet maybe later

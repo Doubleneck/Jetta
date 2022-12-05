@@ -1,10 +1,11 @@
-from db_connection import the_connection
+# from db_connection import the_connection
 from flask import session
+from database import the_database
 
 
 class NoteRepository:
-    def __init__(self, connection=the_connection):
-        self.connection = connection
+    def __init__(self):
+        self.connection = the_database.connection
 
     def create_note(self, bib_citekey, bib_category, author, title, year, doi_address):
         """Create new user bibreference (named as a note) in database. """

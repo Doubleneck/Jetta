@@ -1,42 +1,36 @@
 *** Settings ***
-Library     SeleniumLibrary
-Library     ../AppLibrary.py
+Library             SeleniumLibrary
+Library             ../AppLibrary.py
 
 
 *** Variables ***
 ${SERVER}           localhost:5000
 ${BROWSER}          chrome
-${DELAY}            0.5 seconds
-${HOME URL}         http://${SERVER}
-${LOGIN URL}        http://${SERVER}/login
+${DELAY}            0.0 seconds
+${LOGIN URL}        http://${SERVER}
 ${REGISTER URL}     http://${SERVER}/register
 ${MAIN URL}         http://${SERVER}/main
+${VALID_USERNAME}   testaaja
+${VALID_PASSWORD}   Salasana1
 
 
 *** Keywords ***
 Open And Configure Browser
-    Open Browser    browser=${BROWSER}
+    Open Browser  browser=${BROWSER}
     Maximize Browser Window
-    Set Selenium Speed    ${DELAY}
-
-Go To Home Page
-    Go To    ${HOME URL}
+    Set Selenium Speed  ${DELAY}
 
 Go To Login Page
-    Go To    ${LOGIN URL}
+    Go To  ${LOGIN URL}
 
 Go To Register Page
-    Go To    ${REGISTER URL}
-
-Home Page Should Be Open
-    Title Should Be    Login
-
-Main Page Should Be Open
-    Page Should Contain    Tervetuloa
+    Go To  ${REGISTER URL}
 
 Login Page Should Be Open
-    Title Should Be    Login
+    Title Should Be  Login
 
 Register Page Should Be Open
-    Title Should Be    Register
+    Title Should Be  Register
 
+Main Page Should Be Open
+    Page Should Contain  ${VALID_USERNAME}
