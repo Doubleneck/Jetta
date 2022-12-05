@@ -16,7 +16,7 @@ class UserService:
         """
         return self.user_repository.search_user(username=username)
 
-    def create_user(self, username, password):
+    def create_user(self, username, password, password_confirm):
         """User creation
 
         Args:
@@ -28,11 +28,9 @@ class UserService:
             if the credentials are invalid
         """
 
-        if not validate_credentials(username, password) is None:
-            return False
-
+        validate_credentials(username, password, password_confirm)
         if self._check_if_user_exists(username=username):
-            return False
+            raise Exception("Username already exists")
 
         self.user_repository.create_user(username=username, password=password)
         return True
@@ -48,7 +46,9 @@ class UserService:
             Boolean: True if sign in is succesful, False if not.
         """
 
-        return self.user_repository.sign_in(username=username, password=password)
+        if not self.user_repository.sign_in(username=username, password=password):
+            raise Exception("Incorrect username or password")
+        return True
 
     def get_user_id_by_username(self, username):
         """Search User Id

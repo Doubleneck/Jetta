@@ -2,9 +2,9 @@ from flask import render_template, redirect, url_for, request, flash, session
 from repositories.note_repository import Note
 from services.user_service import the_user_service
 from services.note_service import the_note_service
+from util import validate_credentials
 from app import app
 from database import the_database
-from util import validate_credentials
 
 
 class CredentialsError(Exception):
@@ -27,6 +27,7 @@ def reset_application():
     the_database.initialize_database()
     return "Database Reset"
 
+
 @app.route("/", methods=["POST", "GET"])
 def login_page():
     if request.method != "POST":
@@ -36,17 +37,14 @@ def login_page():
     password = request.form["password"]
 
     try:
-        if the_user_service.sign_in(username=username, password=password):
-            session["username"] = username
-            user_id = the_user_service.get_user_id_by_username(username)
-            session["user_id"] = user_id
-            return redirect_to_main()
-
-        flash("Incorrect username or password")
-    except CredentialsError as error:
+        the_user_service.sign_in(username, password)
+        session["username"] = username
+        user_id = the_user_service.get_user_id_by_username(username)
+        session["user_id"] = user_id
+        return redirect_to_main()
+    except Exception as error:
         flash(str(error))
-
-    return redirect_to_login()
+        return redirect_to_login()
 
 
 @app.route("/register", methods=["POST", "GET"])
@@ -58,23 +56,15 @@ def register_page():
     password = request.form["password"]
     password_confirm = request.form["password_confirm"]
 
-    issue = validate_credentials(username, password, password_confirm)
-    if not issue is None:
-        flash(issue)
-        return redirect_to_register()
-
     try:
-        if the_user_service.create_user(username=username, password=password):
-            session["username"] = username
-            user_id = the_user_service.get_user_id_by_username(username)
-            session["user_id"] = user_id
-            return redirect_to_main()
-        else:
-            flash("Username taken! Please choose another")
-    except CredentialsError as error:
+        the_user_service.create_user(username, password, password_confirm)
+        session["username"] = username
+        user_id = the_user_service.get_user_id_by_username(username)
+        session["user_id"] = user_id
+        return redirect_to_main()
+    except Exception as error:
         flash(str(error))
-
-    return redirect_to_register()
+        return redirect_to_register()
 
 
 @app.route("/main", methods=["POST", "GET"])

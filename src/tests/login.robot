@@ -5,7 +5,7 @@ Resource            login_resource.robot
 
 Suite Setup         Open And Configure Browser
 Suite Teardown      Close Browser
-Test Setup          Create User And Go To Login Page
+Test Setup          Reset Application And Create User And Go To Login Page
 
 
 *** Test Cases ***
@@ -25,6 +25,7 @@ Login With Wrong Password
     Login Should Fail
 
 *** Keywords ***
-Create User And Go To Login Page
+Reset Application And Create User And Go To Login Page
+    Reset Application
     Create User  ${VALID_USERNAME}  ${VALID_PASSWORD}
     Go To Login Page
