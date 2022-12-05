@@ -23,7 +23,12 @@ class UserRepository:
         values = {"username": username}
         sql = """SELECT user_id FROM users
         WHERE username=:username"""
-        return cursor.execute(sql, values).fetchone()[0]
+        
+        result = cursor.execute(sql, values).fetchone()
+        if not result is None:
+            return result[0]
+        else:
+            return None
 
     def create_user(self, username, password):
         """Create new user function. Password is saved as a hash value to
