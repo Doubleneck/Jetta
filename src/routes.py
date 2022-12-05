@@ -24,7 +24,7 @@ def redirect_to_main():
 
 @app.route("/tests/reset", methods=["POST"])
 def reset_application():
-    the_database.initialize_database()
+    the_database.reset_database()
     return "Database Reset"
 
 

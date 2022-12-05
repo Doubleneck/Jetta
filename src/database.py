@@ -14,7 +14,7 @@ class Database:
             raise ConnectionError(f"Connection to database ({self.db_path}) failed")
         self.connection.row_factory = sqlite3.Row
         self.connection.isolation_level = None
-        self.initialize_database()
+        self.create_tables()
         return self.connection
 
     # Not yet maybe later
@@ -51,7 +51,7 @@ class Database:
         cursor.execute("DROP TABLE IF EXISTS notes;")
         self.connection.commit()
 
-    def initialize_database(self):
+    def reset_database(self):
         self.drop_tables()
         self.create_tables()
 
