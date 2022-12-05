@@ -13,46 +13,14 @@
     {% endwith %}
 
 
-    <form action="/create_new_note" method="POST">
-        <p>
-            Author
-        </p>
-        <br>
-        <textarea name="author" cols="30" rows="5"></textarea>
-        <br>
-        <p>
-            Title
-        </p>
-        <br>
-        <textarea name="title" cols="30" rows="5"></textarea>
-        <br>
-        <p>
-            Bib Category
-        </p>
-        <br>
-        <textarea name="bib_category" cols="30" rows="5"></textarea>
-        <br>
-        <p>
-            Bib citekey
-        </p>
-        <br>
-        <textarea name="bib_citekey" cols="30" rows="5"></textarea>
-        <br>
-        <p>
-            Year
-        </p>
-        <br>
-        <textarea name="year" id="" cols="30" rows="5"></textarea>
-        <br>
-        <p>
-            DOI
-        </p>
-        <br>
-        <textarea name="doi_address" id="" cols="30" rows="5"></textarea>
-        <p>
-            <button type="submit">Add</button>
-        </p>
-
+    <form class="note_form" action="/create_new_note" method="POST">
+        <input type="text" name="author" class="text_field note_field" placeholder="author">
+        <input type="text" name="title" class="text_field note_field" placeholder="title">
+        <input type="text" name="bib_category" class="text_field note_field" placeholder="bib-category">
+        <input type="text" name="bib_citekey" class="text_field note_field" placeholder="bib-citekey">
+        <input type="text" name="year" class="text_field note_field" placeholder="year">
+        <input type="text" name="doi_address" class="text_field note_field" placeholder="DOI-address">
+        <input type="submit" name="submit_note" class="button blue_btn" value="Add New Reference">
     </form>
 
 {% endblock %}

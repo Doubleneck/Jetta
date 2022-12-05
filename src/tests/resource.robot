@@ -6,10 +6,12 @@ Library             ../AppLibrary.py
 *** Variables ***
 ${SERVER}           localhost:5000
 ${BROWSER}          headlesschrome
-${DELAY}            0.0 seconds
+# ${BROWSER}          chrome
+${DELAY}            0 seconds
+# ${DELAY}            0.2 seconds
 ${LOGIN URL}        http://${SERVER}
 ${REGISTER URL}     http://${SERVER}/register
-${MAIN URL}         http://${SERVER}/main
+${MAIN_URL}         http://${SERVER}/main
 ${VALID_USERNAME}   testaaja
 ${VALID_PASSWORD}   Salasana1
 
@@ -25,6 +27,9 @@ Go To Login Page
 
 Go To Register Page
     Go To  ${REGISTER URL}
+
+Go To Main Page
+    Go To  ${MAIN_URL}
 
 Login Page Should Be Open
     Title Should Be  Login

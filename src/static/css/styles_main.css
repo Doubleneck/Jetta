@@ -39,6 +39,50 @@ div.page_wrapper {
     font-size: 0.7rem;
 }
 
+/* General UI stuff */
+
+.button {
+    margin-bottom: 0.5rem;
+    width: 100%;
+    height: 3rem;
+    border-radius: 1rem;
+    border-style: hidden;
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: snow;
+    opacity:0.8;
+}
+
+/* Korjaa tämä opasiteettileikki pois */
+.button:hover {
+    opacity: 100%;
+}
+
+div.page_wrapper .blue_btn {
+    margin: 1rem auto;
+    width: 80%;
+    background: #009cd9;
+    color: snow;
+    opacity: 1;
+}
+
+div.page_wrapper .blue_btn:hover {
+    background: #008ec9;
+}
+
+div.page_wrapper input.blue_btn {
+    /* margin: 1rem auto; */
+}
+
+div.page_wrapper a.blue_btn {
+    padding-top: 0.6rem;
+    height: 2.4rem;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 1rem;
+}
+
 /* Signin and Register */
 
 div.credentials_box {
@@ -83,23 +127,7 @@ input.text_field::placeholder {
     opacity: 0.7;
 }
 
-input.button {
-    margin-bottom: 0.5rem;
-    width: 100%;
-    height: 3rem;
-    border-radius: 1rem;
-    border-style: hidden;
-    font-size: 1.2rem;
-    font-weight: normal;
-    color: snow;
-    opacity:0.8;
-}
-
-input.button:hover {
-    opacity: 100%;
-}
-
-input.submit_btn {
+input.submit_credentials_btn {
     background: DeepSkyBlue;
 }
 
@@ -158,23 +186,6 @@ div.topnav > p.username {
 
 /* Note listing */
 
-a.add_reference_btn {
-    margin: 1.6rem auto;
-    padding-top: 0.6rem;
-    height: 2.5rem;
-    width: 80%;
-    display:block;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 1rem;
-    background: #009cd9;
-    color: snow;
-}
-
-a.add_reference_btn:hover {
-    background: #008ec9;
-}
-
 div.note_listing_item {
     margin: 1rem auto;
     padding-top: 0.8rem;
@@ -211,3 +222,14 @@ div.note_listing_item > div.note_footer > p.listing_item_info {
     margin-left: 1rem;
     color: snow;
 }
+
+/* Note Creation */
+
+/* Käytä flexboxia näille paskoille */
+form.note_form > input {
+    width: 80%;
+    /* margin: 1rem auto; */
+    margin-left: 10%;
+    /* background: red; */
+}
+
