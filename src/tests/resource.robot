@@ -5,7 +5,7 @@ Library             ../AppLibrary.py
 
 *** Variables ***
 ${SERVER}           localhost:5000
-${BROWSER}          chrome
+${BROWSER}          headlesschrome
 ${DELAY}            0.0 seconds
 ${LOGIN URL}        http://${SERVER}
 ${REGISTER URL}     http://${SERVER}/register
