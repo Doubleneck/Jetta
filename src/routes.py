@@ -106,3 +106,6 @@ def create_new_reference():
         flash("Something went wrong")
         return redirect("/create_note")
 
+@app.route("/ping", methods=["GET"])
+def ping():
+    return "pong"

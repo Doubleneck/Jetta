@@ -1,4 +1,4 @@
-name: CI
+ame: CI
 
 on:
   push:
@@ -34,3 +34,5 @@ jobs:
         run: bash <(curl -s https://codecov.io/bash)
       - name: Lint
         run: poetry run pylint --fail-under 9.5 src
+      - name: Run robot tests
+        run: bash ./run_robot_tests.sh
