@@ -24,7 +24,7 @@ class UserRepository:
         WHERE username=:username"""
         
         result = cursor.execute(sql, values).fetchone()
-        if not result is None:
+        if result:
             return result[0]
         else:
             return None
