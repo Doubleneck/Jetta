@@ -22,6 +22,7 @@ def redirect_to_register():
 def redirect_to_main():
     return redirect(url_for("main_page"))
 
+
 @app.route("/tests/reset", methods=["POST"])
 def reset_application():
     the_database.reset_database()
@@ -89,23 +90,31 @@ def create_note_page():
 @app.route("/create_new_note", methods=["POST", "GET"])
 def create_new_reference():
     note = Note(
-        author = request.form["author"],
-        title = request.form["title"],
-        year = request.form["year"],
-        doi_address = request.form["doi_address"],
-        bib_category = request.form["bib_category"],
-        bib_citekey = request.form["bib_citekey"],
+        author=request.form["author"],
+        title=request.form["title"],
+        year=request.form["year"],
+        doi_address=request.form["doi_address"],
+        bib_category=request.form["bib_category"],
+        bib_citekey=request.form["bib_citekey"],
     )
     user_id = session["user_id"]
 
     creation = the_note_service.create_note(user_id, note)
     if creation:
         flash("New reference created successfully!")
-        return redirect("/create_note")
+        return redirect_to_main()
     else:
         flash("Something went wrong")
         return redirect("/create_note")
 
+
 @app.route("/ping", methods=["GET"])
 def ping():
     return "pong"
+
+
+@app.route("/logout", methods=["GET"])
+def logout():
+    session["username"] = None
+    session["user_id"] = None
+    return redirect_to_login()
