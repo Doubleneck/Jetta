@@ -8,7 +8,7 @@ Resource    resource.robot
 Add Note And Verify
     [Arguments]    ${author}    ${title}    ${bib_category}    ${bib_citekey}    ${year}    ${doi}
     Add New Note    ${author}    ${title}    ${bib_category}    ${bib_citekey}    ${year}    ${doi}
-    Main Page Should Be Open
+    Page Should Contain    New reference created successfully!
     Verify Succesful Addition    ${author}    ${title}    ${bib_category}    ${bib_citekey}    ${year}    ${doi}
 
 Add New Note

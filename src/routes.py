@@ -102,7 +102,7 @@ def create_new_reference():
     creation = the_note_service.create_note(user_id, note)
     if creation:
         flash("New reference created successfully!")
-        return redirect_to_main()
+        return redirect("/create_note")
     else:
         flash("Something went wrong")
         return redirect("/create_note")
