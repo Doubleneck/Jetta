@@ -1,0 +1,21 @@
+class BibService:
+
+    def generate_bib(self, notes):
+        """bibtex parser function
+
+        Args:
+            notes (list): A list of note objects to be parsed to bibtex
+
+        Returns:
+            String: a string file, which follows bibtex-format
+        """
+        bibtexString = ""
+        for note in notes:
+            bibtexString += "@" + note.bib_category + \
+                "{" + note.bib_citekey + "," + "\n\ttitle = {" + note.title + "}," +\
+                "\n\tauthor = {" + note.author + "}," + "\n\tyear = {" + note.year + "}," + \
+                "\n\turl = {" + note.doi_address + "}\n}" + "\n"
+        return bibtexString
+
+
+the_bib_service = BibService()
