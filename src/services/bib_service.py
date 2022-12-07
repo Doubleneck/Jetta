@@ -14,7 +14,7 @@ class BibService:
             bibtexString += "@" + note.bib_category + \
                 "{" + note.bib_citekey + "," + "\n\ttitle = {" + note.title + "}," +\
                 "\n\tauthor = {" + note.author + "}," + "\n\tyear = {" + note.year + "}," + \
-                "\n\turl = {" + note.doi_address + "}\n}" + "\n"
+                "\n\tdoi_address = {" + note.doi_address + "}\n}" + "\n"
         return bibtexString
 
 
