@@ -11,21 +11,20 @@ class BibService:
         """
         if len(notes) > 0:
             print(notes)
-            bibtex_string = ""
+            bibtexString = ""
             for note in notes:
                 print(note)
                 self.validate_note(note)
-                bibtex_string += "@" + note.bib_category + \
+                bibtexString += "@" + note.bib_category + \
                 "{" + note.bib_citekey + "," + "\n\ttitle = {" + note.title + "}," +\
                 "\n\tauthor = {" + note.author + "}," + "\n\tyear = {" + note.year + "}," + \
                 "\n\tdoi_address = {" + note.doi_address + "}\n}" + "\n"
-            return bibtex_string
-            
+            return bibtexString
 
     def validate_note(self,note):
-        valid_categories = ["book","article","phdthesis","misc"]
+        valid_categories = ['book','article','phdthesis','misc']
         if note.bib_category in valid_categories and \
-            note.bib_citekey != "":
+            note.bib_citekey != '':
             return True
         raise ValueError("The note object is not valid for bib_tex")
 
