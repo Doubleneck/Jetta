@@ -69,6 +69,21 @@ class TestNoteService(unittest.TestCase):
 
         notes = self.service.get_all_notes_by_user_id(TEST_USER_ID)
         self.assertEqual(len(notes), 2)
+    
+    def test_citekey_is_generated_if_empty(self):
+        
+        note_3 = Note(
+            bib_citekey = None,
+            bib_category = "book",
+            author = "Kurose J.F., Ross K.W.",
+            title = "Computer Networkin: A Top Down Approach",
+            year = "2015",
+            doi_address = "10.1037/0022-3245.83.3.405",
+        )
+        self.service.create_note(TEST_USER_ID, note_3)
+        notes = self.service.get_all_notes_by_user_id(TEST_USER_ID)
+        test_note3 = notes[0]
+        self.assertNotEqual(None, test_note3.bib_citekey)
 
 # Tests for the Note class
 class TestNote(unittest.TestCase):
