@@ -107,6 +107,11 @@ def create_new_reference():
         flash("Something went wrong")
         return redirect("/create_note")
 
+@app.route("/download_bibtex", methods=["POST", "GET"])
+def download_bibtex():
+    print("Fetch a bibtex file")
+    flash("This is where you would get your file...")
+    return redirect_to_main()
 
 @app.route("/ping", methods=["GET"])
 def ping():

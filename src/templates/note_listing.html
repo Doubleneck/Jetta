@@ -3,14 +3,32 @@
 
 {% block note_content %}
 
-    <a href="/create_note" id="add_reference_btn" class="button dark_blue_btn">Add a new reference</a>
-    <a href="/print_bibtex" id="print_bibtex_btn" class="button pink_btn">Print a BibTex file</a>
+    {{ note_listing_ctrls() }}
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p class="font_small error_msg">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 
     {% for note in notes %}
         {{ note_listing_item(note.title, note.author, note.year, note.doi_address, note.bib_category, note.bib_citekey) }}
     {% endfor %}
 
+    {% if notes | length > 6 %}
+        {{ note_listing_ctrls() }}
+    {% endif %}
+
 {% endblock %}
+
+{% macro note_listing_ctrls() %}
+    <div class="button_wrapper">
+        <a href="/create_note" id="add_reference_btn" class="button dark_blue_btn">Add a new reference</a>
+        <a href="/download_bibtex" id="print_bibtex_btn" class="button pink_btn">Download a BibTex file</a>
+    </div>
+{% endmacro %}
 
 {% macro note_listing_item(title, author, year, doi_address, bib_category, bib_citekey) %}
     <div class="note_listing_item">

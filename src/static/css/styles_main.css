@@ -11,9 +11,10 @@ body {
 }
 
 div.page_wrapper {
-	margin: 0 auto;
-	padding: 4rem 1rem;
+	margin: 0 auto 0;
+	padding: 3.6rem 0;
 	max-width: 60em;
+    overflow: auto;
 	/* background: #59d4fd; */
 }
 
@@ -143,7 +144,7 @@ input.text_field::placeholder {
 /* Signin and Register */
 
 div.credentials_box {
-    margin: 10rem auto;
+    margin: 10rem auto 0;
     width: 20rem;
     height: 24rem;
 }
@@ -187,6 +188,23 @@ div.topnav > p.username {
 }
 
 /* Note listing */
+
+.button_wrapper {
+    padding: 0.6rem 0;
+    width: 80%;
+    height: 3rem;
+    margin: 0.6rem auto 1.2rem auto;
+}
+
+div.button_wrapper > a.dark_blue_btn {
+    width: 48%;
+    float: left;
+}
+
+div.button_wrapper > a.pink_btn {
+    width: 48%;
+    float: right;
+}
 
 div.note_listing_item {
     margin: 1rem auto;
@@ -240,7 +258,7 @@ div.note_listing_item > div.note_footer > p.listing_item_info {
 div.note_form_box {
     width: 80%;
     height: 35rem;
-    margin: 8rem auto;
+    margin: 6% auto 0;
 }
 
 form.note_form > .button {
