@@ -29,22 +29,24 @@ class NoteRepository:
         # for a more reliable interface
         return [_database_row_to_note(row) for row in cursor.execute(sql, values).fetchall()]
     
-    def check_if_citekey_exists(self, citekey):
+    def check_if_citekey_exists(self, user_id, citekey):
         """Checks if citekey that is given as parameters already exists
 
         Args:
             citekey (string): citekey for the bibtex entry
         """
         cursor  = self.connection.cursor()
-        values = {"citekey":citekey}
+        values = {"user_id":user_id, "citekey":citekey}
         sql = """SELECT user_id, bib_citekey, bib_category, 
         author, title, year, doi_address
         FROM notes
-        WHERE bib_citekey=:citekey"""
+        WHERE bib_citekey=:citekey, user_id=:user_id"""
         result = cursor.execute(sql, values).fetchall()
         if result:
             return True
         return False
+
+
 
 
 def _database_row_to_note(row):
