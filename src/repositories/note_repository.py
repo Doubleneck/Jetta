@@ -30,7 +30,7 @@ class NoteRepository:
         return [_database_row_to_note(row) for row in cursor.execute(sql, values).fetchall()]
     
     def check_if_citekey_exists(self, user_id, citekey):
-        """Checks if citekey that is given as parameters already exists
+        """Checks if citekey that is given as parameters already exists in user's notes
 
         Args:
             citekey (string): citekey for the bibtex entry
@@ -40,7 +40,7 @@ class NoteRepository:
         sql = """SELECT user_id, bib_citekey, bib_category, 
         author, title, year, doi_address
         FROM notes
-        WHERE bib_citekey=:citekey, user_id=:user_id"""
+        WHERE bib_citekey=:citekey AND user_id=:user_id"""
         result = cursor.execute(sql, values).fetchall()
         if result:
             return True
