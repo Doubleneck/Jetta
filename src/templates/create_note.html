@@ -2,25 +2,29 @@
 
 {% block note_content %}
 
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul class=flashes>
-        {% for message in messages %}
-          <li>{{ message }}</li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
+    <div class="note_form_box box">
+        <h3 class="box_title">Create a New Reference</h3>
 
+        <div class="form_wrapper note_form">
+            <form class="note_form" action="/create_new_note" method="POST">
+                <input type="text" name="author" class="text_field note_field" placeholder="author">
+                <input type="text" name="title" class="text_field note_field" placeholder="title">
+                <input type="text" name="bib_category" class="text_field note_field" placeholder="bib-category">
+                <input type="text" name="bib_citekey" class="text_field note_field" placeholder="bib-citekey">
+                <input type="text" name="year" class="text_field note_field" placeholder="year">
+                <input type="text" name="doi_address" class="text_field note_field" placeholder="DOI-address">
+                <input type="submit" name="submit_note" class="button sky_blue_btn" value="Add New Reference">
+            </form>
+        </div>
 
-    <form class="note_form" action="/create_new_note" method="POST">
-        <input type="text" name="author" class="text_field note_field" placeholder="author">
-        <input type="text" name="title" class="text_field note_field" placeholder="title">
-        <input type="text" name="bib_category" class="text_field note_field" placeholder="bib-category">
-        <input type="text" name="bib_citekey" class="text_field note_field" placeholder="bib-citekey">
-        <input type="text" name="year" class="text_field note_field" placeholder="year">
-        <input type="text" name="doi_address" class="text_field note_field" placeholder="DOI-address">
-        <input type="submit" name="submit_note" class="button blue_btn" value="Add New Reference">
-    </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="font_small error_msg">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+    <div>
 
 {% endblock %}

@@ -7,13 +7,14 @@
 
     <div class="topnav">
         <a href="/main"><img class="logo" src="{{ url_for('static', filename='images/jetta_logo_musta.svg') }}" alt="logo"></a>
-        <a href="/logout" class="logout font_normal">Logout</a>
+        <a href="/logout" class="button grey_btn">Logout</a>
         <p class="username font_normal">{{ username }}</p>
     </div>
     <div class="page_wrapper">
 
         {% block note_content %}
         {% endblock %}
+
     </div>
 
 {% endblock %}

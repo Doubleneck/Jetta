@@ -41,76 +41,89 @@ div.page_wrapper {
 
 /* General UI stuff */
 
-.button {
-    margin-bottom: 0.5rem;
-    width: 100%;
-    height: 3rem;
-    border-radius: 1rem;
-    border-style: hidden;
-    font-size: 1.2rem;
-    font-weight: normal;
-    color: snow;
-    opacity:0.8;
-}
-
-/* Korjaa tämä opasiteettileikki pois */
-.button:hover {
-    opacity: 100%;
-}
-
-div.page_wrapper .blue_btn {
-    margin: 1rem auto;
-    width: 80%;
-    background: #009cd9;
-    color: snow;
-    opacity: 1;
-}
-
-div.page_wrapper .blue_btn:hover {
-    background: #008ec9;
-}
-
-div.page_wrapper input.blue_btn {
-    /* margin: 1rem auto; */
-}
-
-div.page_wrapper a.blue_btn {
-    padding-top: 0.6rem;
-    height: 2.4rem;
-    display: block;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 1rem;
-}
-
-/* Signin and Register */
-
-div.credentials_box {
-    margin: 10rem auto;
-    width: 20rem;
-    height: 24rem;
+div.box {
     overflow: auto;
     border-radius: 2rem;
     background: snow;
-    /* background: red; */
 }
 
-h3.credentials_title {
+h3.box_title {
     text-align: center;
     margin: 2.5rem 0 1.5rem 0;
     font-size: 2rem;
     color: DarkGrey;
 }
 
-div.credentials_form {
-    margin: 1rem 20%;
-    /* background: blue; */
+p.error_msg {
+    margin-top: 0.6rem;
+    text-align: center;
+    color: DarkGrey;
+}
+
+div.form_wrapper {
+    margin: 1rem 4rem;
+}
+
+.button {
+    margin-bottom: 0.5rem;
+    height: 3rem;
+    border-radius: 1rem;
+    border-style: hidden;
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: snow;
+}
+
+a.button {
+    padding-top: 0.6rem;
+    height: 2.4rem;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+}
+
+div.page_wrapper > .button {
+    margin: 1rem auto;
+    width: 80%;
+}
+
+.sky_blue_btn {
+    background: #33cbfe
+}
+
+.sky_blue_btn:hover {
+    background: DeepSkyBlue
+}
+
+.dark_blue_btn {
+    background: #1a79ff;
+}
+
+.dark_blue_btn:hover {
+    background: #1f6bff;
+}
+
+.pink_btn {
+    background: #c20acf;
+}
+
+.pink_btn:hover {
+    background: #ad1dd4;
+}
+
+.grey_btn {
+    background: #cbcaca;
+}
+
+.grey_btn:hover {
+    background: #bebebe;    
 }
 
 input.text_field {
     margin-bottom: 1rem;
     padding: 0 1rem;
-    width: calc(100% - 4px - 2rem);
+    /* width: calc(100% - 4px - 2rem); */
+    width: 100%;
     height: 2.4rem;
     border-radius: 1rem;
     border-style: hidden;
@@ -127,17 +140,16 @@ input.text_field::placeholder {
     opacity: 0.7;
 }
 
-input.submit_credentials_btn {
-    background: DeepSkyBlue;
+/* Signin and Register */
+
+div.credentials_box {
+    margin: 10rem auto;
+    width: 20rem;
+    height: 24rem;
 }
 
-input.go_register_btn {
-    background: #bebebe;    
-}
-
-p.error_msg {
-    text-align: center;
-    color: DarkGrey;
+div.credentials_form .button {
+    width: 100%;
 }
 
 /* Top Nav */
@@ -155,25 +167,15 @@ div.topnav img.logo {
     height: 1.6rem;
 }
 
-div.topnav > a.logout {
+div.topnav > a.button {
     margin-top: 0.45rem;
     margin-right: 2rem;
     padding-top: 0.3rem;
     height: 1.8rem;
     width: 8rem;
-    display: block;
     float: right;
-    font-weight: bold;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 1rem;
-    background: DarkGrey;
-    color: snow;
-    opacity: 0.8;
-}
-
-div.topnav > a.logout:hover {
-    opacity: 1;
+    font-size: 1rem;
+    font-weight: bold; */
 }
 
 div.topnav > p.username {
@@ -202,9 +204,19 @@ div.note_listing_item > p.listing_item_info {
     color: Gray;
 }
 
+div.note_listing_item > img.x_icon {
+    float: right;
+    width: 1rem;
+    margin: 0rem 0.8rem;
+    opacity: 0.8;
+}
+
+div.note_listing_item > img.x_icon:hover {
+    opacity: 1;
+}
+
 div.note_listing_item > p.note_title {
     margin-left: 1.6rem;
-    /* text-decoration: underline; */
     color: DimGray
 }
 
@@ -225,11 +237,13 @@ div.note_listing_item > div.note_footer > p.listing_item_info {
 
 /* Note Creation */
 
-/* Käytä flexboxia näille paskoille */
-form.note_form > input {
+div.note_form_box {
     width: 80%;
-    /* margin: 1rem auto; */
-    margin-left: 10%;
-    /* background: red; */
+    height: 35rem;
+    margin: 8rem auto;
+}
+
+form.note_form > .button {
+    width: 100%;
 }
 
