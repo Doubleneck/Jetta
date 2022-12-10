@@ -23,7 +23,7 @@ class BibService:
         valid_categories = ['book','article','phdthesis','misc']
         if not note.bib_category in valid_categories or \
             note.bib_citekey == '':
-            raise ValueError("Bib category must be one of: book, article, pdhthesis or misc")
+            raise ValueError("Bib category must be one of: book, article, phdthesis or misc")
         
         return True
 
