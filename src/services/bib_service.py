@@ -21,7 +21,7 @@ class BibService:
 
     def validate_note(self,note):
         valid_categories = ['book','article','phdthesis','misc']
-        if not note.bib_category in valid_categories or \
+        if not note.bib_category.lower() in valid_categories or \
             note.bib_citekey == '':
             raise ValueError("Bib category must be one of: book, article, phdthesis or misc")
         
