@@ -111,6 +111,13 @@ def create_new_reference():
         bib_category=request.form["bib_category"],
         bib_citekey=request.form["bib_citekey"],
     )
+
+    try:
+        the_bib_service.validate_note(note)
+    except ValueError as ex:
+        flash(str(ex))
+        return redirect("/create_note")
+
     user_id = session["user_id"]
     if the_note_service.check_if_citekey_exists(user_id, note.bib_citekey):
         flash("The citekey has to be unique. Please try again with another citekey.")
