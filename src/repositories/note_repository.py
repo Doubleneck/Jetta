@@ -23,7 +23,7 @@ class NoteRepository:
         cursor = self.connection.cursor()
         values = {"user_id": user_id}
         sql = """SELECT * FROM notes
-        WHERE user_id=:user_id ORDER BY title"""
+        WHERE user_id=:user_id ORDER BY title COLLATE NOCASE ASC"""
 
         # Convert to Note objects instead of depending on the database representation
         # for a more reliable interface
