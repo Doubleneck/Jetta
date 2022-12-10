@@ -112,6 +112,10 @@ def create_new_reference():
         bib_citekey=request.form["bib_citekey"],
     )
     user_id = session["user_id"]
+    if the_note_service.check_if_citekey_exists(user_id, note.bib_citekey):
+        flash("The citekey has to be unique. Please try again with another citekey.")
+        return redirect("/create_note")
+    
 
     creation = the_note_service.create_note(user_id, note)
     if creation:
