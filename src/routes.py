@@ -2,10 +2,18 @@ from flask import render_template, redirect, url_for, request, flash, session
 from repositories.note_repository import Note
 from services.user_service import the_user_service
 from services.note_service import the_note_service
-from util import validate_credentials
+from services.bib_service import the_bib_service
+from util import send_string_as_file
 from app import app
 from database import the_database
 
+
+def check_signed_in():
+    username = session.get("username")
+    if not username or username == "":
+        flash("Please sign in first.")
+        return False
+    return True
 
 class CredentialsError(Exception):
     pass
@@ -70,25 +78,31 @@ def register_page():
 
 @app.route("/main", methods=["POST", "GET"])
 def main_page():
+    if not check_signed_in():
+        return redirect("/")
+
+    if request.method == "POST":
+        return redirect_to_main()
+
     user = session["username"]
     user_id = session["user_id"]
     notes = the_note_service.get_all_notes_by_user_id(user_id)
-    if request.method == "POST":
-        return redirect_to_main()
 
     return render_template("note_listing.html", username=user, user_id=user_id, notes=notes)
 
 
 @app.route("/create_note")
 def create_note_page():
-    if "username" not in session.keys():
-        flash("Please sign in first")
+    if not check_signed_in():
         return redirect("/")
     return render_template("create_note.html")
 
 
 @app.route("/create_new_note", methods=["POST", "GET"])
 def create_new_reference():
+    if not check_signed_in():
+        return redirect("/")
+
     note = Note(
         author=request.form["author"],
         title=request.form["title"],
@@ -109,9 +123,11 @@ def create_new_reference():
 
 @app.route("/download_bibtex", methods=["POST", "GET"])
 def download_bibtex():
-    print("Fetch a bibtex file")
-    flash("This is where you would get your file...")
-    return redirect_to_main()
+    if not check_signed_in():
+        return redirect("/")
+
+    bib_string = the_note_service.get_notes_as_bib(session["user_id"])
+    return send_string_as_file(bib_string, "references.bib")
 
 @app.route("/ping", methods=["GET"])
 def ping():
@@ -120,6 +136,9 @@ def ping():
 
 @app.route("/logout", methods=["GET"])
 def logout():
-    session["username"] = None
-    session["user_id"] = None
+    if not check_signed_in():
+        return redirect("/")
+
+    del session["username"]
+    del session["user_id"]
     return redirect_to_login()

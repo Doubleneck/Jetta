@@ -1,5 +1,6 @@
 import re
-
+from io import BytesIO
+from flask import send_file
 
 def _validate_username(username):
     if len(username) < 3:
@@ -53,3 +54,26 @@ def validate_credentials(username, password, repeated_password = None):
     _validate_username(username)
     _validate_password(password)
     return True
+
+def send_string_as_file(contents, filename):
+    """Sends the string as a file to the user, showing up as a download
+    for the user.
+
+    Args:
+        contents (str): the file contents as a string
+        filename (str): the filename for the download
+    
+    Returns:
+        A response object to return from a route function.
+    """
+
+    buffer = BytesIO()
+    buffer.write(contents.encode("utf-8"))
+    buffer.seek(0)
+
+    return send_file(
+        buffer,
+        as_attachment=True, # download, don't open in browser
+        download_name=filename,
+        mimetype="text/plain"
+    )

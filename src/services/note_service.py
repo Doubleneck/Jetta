@@ -2,6 +2,7 @@ import random
 import string
 
 from repositories.note_repository import the_note_repository
+from services.bib_service import the_bib_service
 
 class NoteService:
     def __init__(self, repository=the_note_repository):
@@ -49,6 +50,17 @@ class NoteService:
         if self.check_if_citekey_exists(citekey):
             return self.create_citekey()
         return citekey
+
+    def get_notes_as_bib(self, user_id):
+        """Gets the notes for the user and generates
+        a bibtex file from them.
+
+        Returns:
+            String: the bibtex file as a string.
+        """
+        notes = self.get_all_notes_by_user_id(user_id)
+        return the_bib_service.generate_bib(notes)
+        
     
     
 the_note_service = NoteService()

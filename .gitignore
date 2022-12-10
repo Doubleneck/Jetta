@@ -6,7 +6,7 @@ __pycache__
 .env
 
 # Coverage related files
-htmlcov
+htmlcov/
 .coverage
 
 # Database files
@@ -24,4 +24,5 @@ htmlcov
 tags
 *.swp
 *.sop
+uploads/
 
