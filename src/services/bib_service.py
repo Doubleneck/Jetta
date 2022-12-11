@@ -19,12 +19,4 @@ class BibService:
                 "\n\tdoi_address = {" + note.doi_address + "}\n}" + "\n"
             return bibtexString
 
-    def validate_note(self,note):
-        valid_categories = ['book','article','phdthesis','misc']
-        if not note.bib_category.lower() in valid_categories or \
-            note.bib_citekey == '':
-            raise ValueError("Bib category must be one of: book, article, phdthesis or misc")
-        
-        return True
-
 the_bib_service = BibService()

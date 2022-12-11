@@ -113,24 +113,20 @@ def create_new_reference():
     )
 
     try:
-        the_bib_service.validate_note(note)
-    except ValueError as ex:
-        flash(str(ex))
+        the_note_service.validate_note(note)
+    except ValueError as error:
+        flash(str(error))
         return redirect("/create_note")
 
     user_id = session["user_id"]
-    if the_note_service.check_if_citekey_exists(user_id, note.bib_citekey):
-        flash("The citekey has to be unique. Please try again with another citekey.")
-        return redirect("/create_note")
-    
-
-    creation = the_note_service.create_note(user_id, note)
-    if creation:
+    try:
+        the_note_service.create_note(user_id, note)
         flash("New reference created successfully!")
-        return redirect("/create_note")
-    else:
-        flash("Something went wrong")
-        return redirect("/create_note")
+    except ValueError as error:
+        flash(str(error))
+    
+    return redirect("/create_note")
+
 
 @app.route("/download_bibtex", methods=["POST", "GET"])
 def download_bibtex():
