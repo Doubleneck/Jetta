@@ -75,7 +75,7 @@ div.form_wrapper {
     color: snow;
 }
 
-.button {
+.button:hover {
     cursor: pointer;
 }
 
