@@ -1,4 +1,3 @@
-from flask import session
 from database import the_database
 
 class NoteRepository:
@@ -7,12 +6,14 @@ class NoteRepository:
 
     def create_note(self, user_id, note):
         """Create new user bibreference (named as a note) in database for user_id. """
+
         cursor = self.connection.cursor()
         values = {"user_id": user_id, "bib_citekey": note.bib_citekey, 
                 "bib_category": note.bib_category, "author": note.author, 
                 "title": note.title, "year": note.year, "doi_address": note.doi_address}
-        sql = """INSERT INTO notes (user_id, bib_citekey, bib_category, author, title, year, doi_address)
-        VALUES (:user_id, :bib_citekey, :bib_category, :author, :title, :year, :doi_address)"""
+        sql = """INSERT INTO notes 
+                 (user_id, bib_citekey, bib_category, author, title, year, doi_address)
+                 VALUES (:user_id, :bib_citekey, :bib_category, :author, :title, :year, :doi_address)"""
         cursor.execute(sql, values)
 
         self.connection.commit()
@@ -20,6 +21,7 @@ class NoteRepository:
 
     def get_all_notes_by_user_id(self, user_id):
         """Returns all notes for the user with the given user_id"""
+
         cursor = self.connection.cursor()
         values = {"user_id": user_id}
         sql = """SELECT * FROM notes
@@ -35,6 +37,7 @@ class NoteRepository:
         Args:
             citekey (string): citekey for the bibtex entry
         """
+
         cursor  = self.connection.cursor()
         values = {"user_id":user_id, "citekey":citekey}
         sql = """SELECT user_id, bib_citekey, bib_category, 
