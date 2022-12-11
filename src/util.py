@@ -3,6 +3,15 @@ from io import BytesIO
 from flask import send_file
 
 def _validate_username(username):
+    """Check username is valid and raise exception if username is not valid
+    
+    Args: 
+        username (string)
+        
+    Returns:
+        None: If username is valid
+    """
+
     if len(username) < 3:
         raise Exception("Username must be at least 3 letters long")
 
@@ -17,6 +26,15 @@ def _validate_username(username):
 
 
 def _validate_password(password):
+    """Check password is valid and raise exception if username is not valid
+    
+    Args: 
+        password (string)
+        
+    Returns:
+        None: If username is valid
+    """
+
     if len(password) < 7:
         raise Exception("Password must be at least 7 characters long")
 
