@@ -16,7 +16,8 @@ class TestUserService(unittest.TestCase):
     def test_creating_user_with_invalid_credentials_fails(self):
         # Note: credential-validation tests are done in depth in util_test.py;
         # suffices to verify that the validation function is likely being called.
-        self.assertRaises(Exception, lambda: self.service.create_user("$", VALID_PASSWORD, VALID_PASSWORD))
+        self.assertRaises(Exception, lambda: self.service.create_user\
+                                             ("$", VALID_PASSWORD, VALID_PASSWORD))
         self.assertRaises(Exception, lambda: self.service.create_user(VALID_USERNAME, "$", "$"))
 
     def test_sign_in_works_after_creating_user(self):
@@ -30,8 +31,11 @@ class TestUserService(unittest.TestCase):
 
     def test_create_user_with_existing_username_fails(self):
         self.assertTrue(self.service.create_user(VALID_USERNAME, VALID_PASSWORD, VALID_PASSWORD))
-        self.assertRaises(Exception, lambda: self.service.create_user(VALID_USERNAME, VALID_PASSWORD, VALID_PASSWORD))
-        self.assertRaises(Exception, lambda: self.service.create_user(VALID_USERNAME, "SomeVal1dPassword", "SomeVal1dPassword"))
+        self.assertRaises(Exception, lambda: self.service.create_user\
+                                             (VALID_USERNAME, VALID_PASSWORD, VALID_PASSWORD))
+        self.assertRaises(Exception, lambda: self.service.create_user\
+                                             (VALID_USERNAME\
+                                             , "SomeVal1dPassword", "SomeVal1dPassword"))
 
     def test_getting_user_id_for_existing_user_returns_int(self):
         self.service.create_user(VALID_USERNAME, VALID_PASSWORD, VALID_PASSWORD)
