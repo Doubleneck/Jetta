@@ -7,7 +7,7 @@ class TestDatabase(unittest.TestCase):
         self.connection = connection
     
     def test_username_and_password_are_right_after_insert(self):
-        username = 'mixrnhxnxfizczhzx'
+        username = '1'
         password = 'Testi3'
         hash_value = generate_password_hash(password)
         
@@ -24,7 +24,7 @@ class TestDatabase(unittest.TestCase):
         sql = """SELECT username, password FROM users\
                  WHERE username=:username AND password=:password"""
         result = cursor.execute(sql, values_2).fetchone()
-        self.assertEqual(result[0], 'mixrnhxnxfizczhzx')
+        self.assertEqual(result[0], '1')
         self.assertEqual(result[1], hash_value)
         
         cursor.execute("DELETE FROM users WHERE username =:username", values_1)
