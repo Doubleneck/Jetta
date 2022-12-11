@@ -17,7 +17,7 @@ class NoteService:
     def get_all_notes_by_user_id(self, user_id):
         return self._repository.get_all_notes_by_user_id(user_id)
     
-    def check_if_citekey_exists(self, user_id, citekey):
+    def citekey_exists(self, user_id, citekey):
         """Search from repository if the citekey already exists in user's notes
 
         Args:
@@ -46,9 +46,11 @@ class NoteService:
         Returns:
             String: Random citekey
         """
-        citekey = self._random_citekey()
-        if self.check_if_citekey_exists(user_id, citekey):
-            return self.create_citekey()
+        citekey_found = False
+        while not citekey_found:
+            citekey = self._random_citekey()
+            if not self.citekey_exists(user_id, citekey):
+                citekey_found = True
         return citekey
 
     def get_notes_as_bib(self, user_id):
