@@ -8,7 +8,7 @@ ${SERVER}           localhost:5000
 ${BROWSER}          headlesschrome
 # ${BROWSER}          chrome
 ${DELAY}            0 seconds
-# ${DELAY}            0.2 seconds
+# ${DELAY}            0 seconds
 ${LOGIN URL}        http://${SERVER}
 ${REGISTER URL}     http://${SERVER}/register
 ${MAIN_URL}         http://${SERVER}/main

@@ -11,14 +11,14 @@ class NoteService:
     def create_note(self, user_id, note):
         if not note.bib_citekey or note.bib_citekey.isspace():
             note.bib_citekey = self.create_citekey(user_id)
-        self._validate_note(user_id, note)
+        self.validate_note(user_id, note)
         self._repository.create_note(user_id, note)
         return True
 
     def get_all_notes_by_user_id(self, user_id):
         return self._repository.get_all_notes_by_user_id(user_id)
     
-    def _validate_note(self, user_id, note):
+    def validate_note(self, user_id, note):
         valid_categories = ['book','article','phdthesis','misc']
         if not note.bib_category.lower() in valid_categories:
             raise ValueError("Bib category must be one of: book, article, phdthesis or misc")

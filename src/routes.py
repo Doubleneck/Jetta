@@ -8,7 +8,7 @@ from app import app
 from database import the_database
 
 
-def check_signed_in():
+def is_signed_in():
     username = session.get("username")
     if not username or username == "":
         flash("Please sign in first.")
@@ -78,8 +78,8 @@ def register_page():
 
 @app.route("/main", methods=["POST", "GET"])
 def main_page():
-    if not check_signed_in():
-        return redirect("/")
+    if not is_signed_in():
+        return redirect(url_for("login_page"))
 
     if request.method == "POST":
         return redirect_to_main()
@@ -91,17 +91,12 @@ def main_page():
     return render_template("note_listing.html", username=user, user_id=user_id, notes=notes)
 
 
-@app.route("/create_note")
-def create_note_page():
-    if not check_signed_in():
-        return redirect("/")
-    return render_template("create_note.html")
-
-
-@app.route("/create_new_note", methods=["POST", "GET"])
+@app.route("/create-reference", methods=["POST", "GET"])
 def create_new_reference():
-    if not check_signed_in():
-        return redirect("/")
+    if not is_signed_in():
+        return redirect(url_for("login_page"))
+    if request.method == "GET":
+        return render_template("create_note.html")
 
     note = Note(
         author=request.form["author"],
@@ -119,13 +114,13 @@ def create_new_reference():
     except ValueError as error:
         flash(str(error))
     
-    return redirect("/create_note")
+    return redirect(url_for("create_new_reference"))
 
 
 @app.route("/download_bibtex", methods=["POST", "GET"])
 def download_bibtex():
-    if not check_signed_in():
-        return redirect("/")
+    if not is_signed_in():
+        return redirect(url_for("login_page"))
 
     bib_string = the_note_service.get_notes_as_bib(session["user_id"])
     return send_string_as_file(bib_string, "references.bib")
@@ -137,8 +132,8 @@ def ping():
 
 @app.route("/logout", methods=["GET"])
 def logout():
-    if not check_signed_in():
-        return redirect("/")
+    if not is_signed_in():
+        return redirect(url_for("login_page"))
 
     del session["username"]
     del session["user_id"]

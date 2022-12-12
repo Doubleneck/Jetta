@@ -1,3 +1,5 @@
+# from services.note_service import the_note_service
+
 class BibService:
 
     def generate_bib(self, notes):
@@ -12,7 +14,7 @@ class BibService:
         if len(notes) > 0:
             bibtexString = ""
             for note in notes:
-                self.validate_note(note)
+                # the_note_service.validate_note(note)
                 bibtexString += "@" + note.bib_category + \
                 "{" + note.bib_citekey + "," + "\n\ttitle = {" + note.title + "}," +\
                 "\n\tauthor = {" + note.author + "}," + "\n\tyear = {" + note.year + "}," + \

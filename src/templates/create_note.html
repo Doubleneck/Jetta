@@ -6,7 +6,7 @@
         <h3 class="box_title">Create a New Reference</h3>
 
         <div class="form_wrapper note_form">
-            <form class="note_form" action="/create_new_note" method="POST">
+            <form class="note_form" action={{ url_for("create_new_reference") }} method="POST">
                 <input type="text" name="author" class="text_field note_field" placeholder="author">
                 <input type="text" name="title" class="text_field note_field" placeholder="title">
                 <input type="text" name="bib_category" class="text_field note_field" placeholder="bib-category">
