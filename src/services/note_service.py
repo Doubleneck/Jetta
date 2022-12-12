@@ -34,7 +34,7 @@ class NoteService:
         Returns:
             Boolean: True if the citekey exists, False if not
         """
-        return the_note_repository.check_if_citekey_exists(user_id, citekey)
+        return self._repository.check_if_citekey_exists(user_id, citekey)
     
     def _random_citekey(self):
         """Creates a random citekey with: 5 random letters and 4 random numbers
