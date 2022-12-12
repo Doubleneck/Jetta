@@ -33,6 +33,7 @@ git clone git@github.com:Doubleneck/Jetta.git
 ```
 or download the [latest release](https://github.com/Doubleneck/Jetta/releases/tag/v.0.0.1)
 <br/>
+<br/>
 
 2. Install required dependencies inside of the Jetta root folder with command
 ```bash
