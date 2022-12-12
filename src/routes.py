@@ -112,12 +112,6 @@ def create_new_reference():
         bib_citekey=request.form["bib_citekey"],
     )
 
-    try:
-        the_note_service.validate_note(note)
-    except ValueError as error:
-        flash(str(error))
-        return redirect("/create_note")
-
     user_id = session["user_id"]
     try:
         the_note_service.create_note(user_id, note)

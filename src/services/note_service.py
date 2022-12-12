@@ -9,21 +9,21 @@ class NoteService:
         self._repository = repository
 
     def create_note(self, user_id, note):
-        citekey = note.bib_citekey
-        if not citekey or citekey.isspace():
+        if not note.bib_citekey or note.bib_citekey.isspace():
             note.bib_citekey = self.create_citekey(user_id)
-        elif self.citekey_exists(user_id, citekey):
-            raise ValueError("The citekey has to be unique. Please try again with another citekey.")
+        self._validate_note(user_id, note)
         self._repository.create_note(user_id, note)
         return True
 
     def get_all_notes_by_user_id(self, user_id):
         return self._repository.get_all_notes_by_user_id(user_id)
     
-    def validate_note(self,note):
+    def _validate_note(self, user_id, note):
         valid_categories = ['book','article','phdthesis','misc']
         if not note.bib_category.lower() in valid_categories:
             raise ValueError("Bib category must be one of: book, article, phdthesis or misc")
+        if self.citekey_exists(user_id, note.bib_citekey):
+            raise ValueError("The citekey has to be unique. Please try again with another citekey.")
 
     def citekey_exists(self, user_id, citekey):
         """Search from repository if the citekey already exists in user's notes
