@@ -24,38 +24,43 @@ In order to run this software
 - Latest version of poetry must be installed.
 - Python version 3.8 or greater must be installed.
 
+
 1. Clone this software in your terminal with command 
 ```bash
 git clone git@github.com:Doubleneck/Jetta.git
 ```
 or download the [latest release](https://github.com/Doubleneck/Jetta/releases/tag/v.0.0.1)
 
+
 2. Install required dependencies inside of the Jetta root folder with command
 ```bash
 poetry install
 ```
+
 
 3. Enter poetry shell with command
 ```bash
 poetry shell
 ```
 
+
 4. Initialize the database used by software with command
 ```bash
 python3 src/build.py
 ```
+
 
 5. Start application with command
 ```bash
 python3 src/app.py
 ```
 
-6. More instructions about software, usage examples etc. 
-```bash
-[Instructions](https://github.com/Doubleneck/Jetta/blob/master/documentation/instructions.md)
-```
+
+6. More [Instructions](https://github.com/Doubleneck/Jetta/blob/master/documentation/instructions.md) about software, usage examples etc.
+
 
 7. Enjoy!
+
 
 #### Version
 [Latest version release](https://github.com/Doubleneck/Jetta/releases/tag/v.0.0.1)
