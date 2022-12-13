@@ -31,7 +31,7 @@ In order to run this software
 ```bash
 git clone git@github.com:Doubleneck/Jetta.git
 ```
-or download the [latest release](https://github.com/Doubleneck/Jetta/releases/tag/v.0.0.1)
+or download the [latest release](https://github.com/Doubleneck/Jetta/releases/tag/v.1.0.0)
 <br/>
 <br/>
 
@@ -66,4 +66,4 @@ python3 src/app.py
 <br/>
 
 #### Version
-[Latest version release](https://github.com/Doubleneck/Jetta/releases/tag/v.0.0.1)
+[Latest version release](https://github.com/Doubleneck/Jetta/releases/tag/v.1.0.0)
