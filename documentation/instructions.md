@@ -69,13 +69,13 @@ Password must be over 7 characters and contains atleast one small letter, one bi
 \
 \
 \
-When you finally get your own user, you reach main page where you have already references or not have any. You can go to add a new reference, create bibtex file or logout.\
+When you finally get your own user, you reach main page where you have already references or not have any. You can go to add a new reference, download a BibTex file or logout.\
 \
 ![](./pictures/Main_page.png)\
 \
 \
 \
-If you pressed add a new reference button, you reach page where you can make a new reference. You can just add author, title, bib category, bib citekey, year and doi to text boxes.\
+If you pressed add a new reference button, you reach page where you can make a new reference. You can just add author, title, bib category, bib citekey, year and doi to text boxes. You must fill bib-category either book, article, phdthesisi or misc type and if you leave bib-citekey blank. It autogenerates you citekey so don't worry\
 \
 ![](./pictures/New_reference.png)\
 \
@@ -93,6 +93,6 @@ If your reference is added. Software notifies about it with text 'New reference 
 \
 \
 \
-Now main page looks like this!!!\
+Now main page looks like this!!! and citekey is randomly generated as well\
 \
 ![](./pictures/Reference_in_main.png)
