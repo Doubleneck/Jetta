@@ -93,6 +93,11 @@ If your reference is added. Software notifies about it with text 'New reference 
 \
 \
 \
-Now main page looks like this!!! and citekey is randomly generated as well\
+Now main page looks like this and citekey is randomly generated as well!!!\
 \
 ![](./pictures/Reference_in_main.png)
+
+
+You can just download BibTex file with pressing Download a BibTex file button and now you know how to use this software and enjoy!\
+\
+Latest version Here if you don't have it already
