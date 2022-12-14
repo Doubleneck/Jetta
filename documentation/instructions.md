@@ -30,12 +30,6 @@ poetry shell
 ```
 <br/>
 
-4. Initialize the database used by software with command
-```bash
-python3 src/build.py
-```
-<br/>
-
 5. Start application with command
 ```bash
 python3 src/app.py
