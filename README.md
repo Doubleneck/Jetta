@@ -1,9 +1,9 @@
 [![GHA workflow badge](https://github.com/Doubleneck/Jetta/workflows/CI/badge.svg)](https://github.com/Doubleneck/Jetta/actions/workflows/main.yml)
 [![codecov badge](https://codecov.io/gh/Doubleneck/Jetta/branch/master/graph/badge.svg?token=HLHGkP7oag)](https://codecov.io/gh/Doubleneck/Jetta)
 
-# OHTU Miniprojekti
+# OHTU Software engineering course mini project
 
-Web-sovellus graduviitteiden hallintaan
+Web application for mastering bibliocraphical references in bibtex-format
 <br/>
 
 ## Dokumentaatio
@@ -15,6 +15,8 @@ Web-sovellus graduviitteiden hallintaan
 - [License](https://github.com/Doubleneck/Jetta/blob/master/documentation/LICENSE.txt)
 
 - [Instructions](https://github.com/Doubleneck/Jetta/blob/master/documentation/instructions.md)
+
+- [Final report (in Finnish)](https://github.com/Doubleneck/Jetta/blob/master/documentation/final_report.md)
 <br/>
 
 ## Installation
