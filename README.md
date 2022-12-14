@@ -6,7 +6,7 @@
 Web application for mastering bibliocraphical references in bibtex-format
 <br/>
 
-## Dokumentaatio
+## Documentation
 
 - [Product backlog](https://helsinkifi-my.sharepoint.com/:x:/r/personal/tsharkon_ad_helsinki_fi/_layouts/15/Doc.aspx?sourcedoc=%7B990EAC30-58E9-4205-BA24-63F613E3C18C%7D&file=Jetta_ProductBacklog.xlsx&action=default&mobileredirect=true)
 
@@ -46,12 +46,6 @@ poetry install
 3. Enter poetry shell with command
 ```bash
 poetry shell
-```
-<br/>
-
-4. Initialize the database used by software with command
-```bash
-python3 src/build.py
 ```
 <br/>
 
