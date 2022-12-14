@@ -34,20 +34,20 @@ Toinen tekninen haaste liittyi robot-testien konfigurointiin ja niitten liittäm
 Saimme kuitenkin yhden User Storyn toteutettua, ja asiakastapaamisen jälkeen paineet tuntuivat hellittävän - olimme saaneet yhdessä aikaiseksi
 tähän asti toimivan sovelluksen.
 
-Viikon lopussa pidettiin glad-sad-mad retro.
+Viikon lopussa pidettiin glad-sad-mad retro, jossa tartuttiin isoimpiin kehityskohtiin: tuntimäärien parempi estimaatio ja sprintin aloittaminen alkuviikosta, mikä sopi ryhmän aikatauluihin paremmin. Glad -osioon tuli hyvää palautetta kommunikaatiosta, joka oikeastaan pysyi glad -osiossa, tiiviinä ja avoimena koko projektin ajan.
 
 ## Sprint 2
 
 Toisella viikolla tilannekuva oli onnistuneen asiakastapaamisen jälkeen huomattavasti selkeämpi. Myös se, että aloimme tuntea toisiamme helpotti 
 työskentelyä. Roolit jakautuivat helposti.
 
-Teknisenä haasteena roikkui pitkän aikaa edelleen robot-testien lopullinen konfiguraatio ja toimiminen oikein CI-putkessa. See lopulta onnistui.
+Teknisenä haasteena roikkui pitkän aikaa edelleen robot-testien lopullinen konfiguraatio ja toimiminen oikein CI-putkessa. Se lopulta onnistui.
 Viikko kului perusrakennetta tehdessä, jatkuvasti refaktoroidessa ja pyrkimyksenä pitää CI koko ajan vihreänä. 
 
 Otettin käyttöön Googlen lintteri, josta muokattiin meille sopiva. Monia asioita korjattiin ja muutettiin lennosta, mm. tietokantakonfiguraatiota
 korjattiin.
 
-Viikon lopussa pidettiin taas glad-sad-mad retro.
+Viikon lopussa pidettiin taas glad-sad-mad retro. Tällä kertaa tunnit pysyivät paremmin estimaateissa ja sprintin aloittaminen onnistui alkuviikosta, joten lappunen siirtyi glad -osioon.
 
 ## Sprint 3
 
