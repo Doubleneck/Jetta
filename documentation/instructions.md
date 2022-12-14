@@ -36,7 +36,7 @@ python3 src/app.py
 ```
 <br/>
 
-7. Enjoy!
+6. Enjoy!
 <br/>
 
 
