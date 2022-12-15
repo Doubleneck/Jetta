@@ -14,7 +14,7 @@ In order to run this software
 ```bash
 git clone git@github.com:Doubleneck/Jetta.git
 ```
-or download the [latest release](https://github.com/Doubleneck/Jetta/releases/tag/v.1.0.0)
+or download the [latest release](https://github.com/Doubleneck/Jetta/releases/tag/v.2.0.0)
 <br/>
 <br/>
 
@@ -94,4 +94,4 @@ Now main page looks like this and citekey is randomly generated as well!!!\
 
 You can just download BibTex file with pressing Download a BibTex file button and now you know how to use this software and enjoy!\
 \
-Latest version [Here](https://github.com/Doubleneck/Jetta/releases/tag/v.1.0.0) if you don't have it already
+Latest version [Here](https://github.com/Doubleneck/Jetta/releases/tag/v.2.0.0) if you don't have it already
