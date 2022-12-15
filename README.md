@@ -49,16 +49,16 @@ poetry shell
 ```
 <br/>
 
-5. Start application with command
+4. Start application with command
 ```bash
 python3 src/app.py
 ```
 <br/>
 
-6. More [Instructions](https://github.com/Doubleneck/Jetta/blob/master/documentation/instructions.md) about software, usage examples etc.
+5. More [Instructions](https://github.com/Doubleneck/Jetta/blob/master/documentation/instructions.md) about software, usage examples etc.
 <br/>
 
-7. Enjoy!
+6. Enjoy!
 <br/>
 
 #### Version
