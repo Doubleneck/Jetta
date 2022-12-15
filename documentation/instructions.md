@@ -30,13 +30,13 @@ poetry shell
 ```
 <br/>
 
-5. Start application with command
+4. Start application with command
 ```bash
 python3 src/app.py
 ```
 <br/>
 
-6. Enjoy!
+5. Enjoy!
 <br/>
 
 
