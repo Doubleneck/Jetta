@@ -1,13 +1,23 @@
 import sqlite3
-# from db_connection import the_connection
-
 
 class Database:
     def __init__(self, path="data.db"):
+        """Construction
+        
+        Args:
+            path: database file
+        """
+
         self.db_path = path
         self.connection = self.connect()
 
     def connect(self):
+        """Try to connect into database, and if fail, raise exception. Also uses create_table method
+        
+        Returns:
+            self.connection: connection to database
+        """
+
         try:
             self.connection = sqlite3.connect(self.db_path, check_same_thread=False)
         except Exception:
@@ -17,14 +27,9 @@ class Database:
         self.create_tables()
         return self.connection
 
-    # Not yet maybe later
-    def disconnect(self):
-        try:
-            self.connection.close()
-        except Exception as e:
-            raise ConnectionError("Error closing connection to db") from e
-
     def create_tables(self):
+        """Creates users and notes tables"""
+
         cursor = self.connection.cursor()
         create_table_users = "CREATE TABLE IF NOT EXISTS users(\
                            user_id INTEGER PRIMARY KEY AUTOINCREMENT,\
@@ -46,12 +51,16 @@ class Database:
         cursor.close()
 
     def drop_tables(self):
+        """Drop users and notes tables if those exists"""
+
         cursor = self.connection.cursor()
         cursor.execute("DROP TABLE IF EXISTS users;")
         cursor.execute("DROP TABLE IF EXISTS notes;")
         self.connection.commit()
 
     def reset_database(self):
+        """Calls drop_tables and create_tables methods"""
+
         self.drop_tables()
         self.create_tables()
 

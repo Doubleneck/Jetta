@@ -34,5 +34,6 @@ class TestCredentialsValidation(unittest.TestCase):
         self.assertRaises(Exception, lambda: validate_credentials("$eppo", VALID_PASSWORD))
 
     def test_password_and_password_repeat_must_match(self):
-        self.assertRaises(Exception, lambda: validate_credentials(VALID_USERNAME, "Passw0rd", "Pass0wrd"))
+        self.assertRaises(Exception, lambda:\
+                          validate_credentials(VALID_USERNAME, "Passw0rd", "Pass0wrd"))
         self.assertTrue(validate_credentials(VALID_USERNAME, "Passw0rd", "Passw0rd"))

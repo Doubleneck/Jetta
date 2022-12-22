@@ -25,8 +25,8 @@
 
 {% macro note_listing_ctrls() %}
     <div class="button_wrapper">
-        <a href="/create_note" id="add_reference_btn" class="button dark_blue_btn">Add a new reference</a>
-        <a href="/download_bibtex" id="print_bibtex_btn" class="button pink_btn">Download a BibTex file</a>
+        <a href={{ url_for("create_new_reference") }} id="add_reference_btn" class="button dark_blue_btn">Add a new reference</a>
+        <a href={{ url_for("download_bibtex") }} id="print_bibtex_btn" class="button pink_btn">Download a BibTex file</a>
     </div>
 {% endmacro %}
 

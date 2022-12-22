@@ -1,3 +1,5 @@
+# from services.note_service import the_note_service
+
 class BibService:
 
     def generate_bib(self, notes):
@@ -12,19 +14,11 @@ class BibService:
         if len(notes) > 0:
             bibtexString = ""
             for note in notes:
-                self.validate_note(note)
+                # the_note_service.validate_note(note)
                 bibtexString += "@" + note.bib_category + \
                 "{" + note.bib_citekey + "," + "\n\ttitle = {" + note.title + "}," +\
                 "\n\tauthor = {" + note.author + "}," + "\n\tyear = {" + note.year + "}," + \
                 "\n\tdoi_address = {" + note.doi_address + "}\n}" + "\n"
             return bibtexString
-
-    def validate_note(self,note):
-        valid_categories = ['book','article','phdthesis','misc']
-        if not note.bib_category.lower() in valid_categories or \
-            note.bib_citekey == '':
-            raise ValueError("Bib category must be one of: book, article, phdthesis or misc")
-        
-        return True
 
 the_bib_service = BibService()
