@@ -75,6 +75,10 @@ div.form_wrapper {
     color: snow;
 }
 
+.button:hover {
+    cursor: pointer;
+}
+
 a.button {
     padding-top: 0.6rem;
     height: 2.4rem;
